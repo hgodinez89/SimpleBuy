@@ -1,12 +1,11 @@
 <p align="center">
-  <img src="https://res.cloudinary.com/developerteam/image/upload/v1588770540/SimpleBuy/simplebuy-icon.png" alt="Logo"width=380 height=200>
 
   <h3 align="center">SimpleBuy</h3>
 
   <p align="center">
     This is an E-commerce website.
     <br>
-    <a href="https://github.com/hgodinez89/Movie-Database/issues/new">Report bug</a>
+    <a href="https://github.com/hgodinez89/SimpleBuy/issues/new">Report bug</a>
   </p>
 </p>
 
@@ -78,7 +77,7 @@ Thanks for your visiting! 👍
 
 ## Try a demo
 
-If you want to try a live and free demo of SimpleBuy, you can do it, just need to go to <a href="https://simplebuy-276303.uc.r.appspot.com">https://simplebuy.com</a> and you will see a SimpleBuy test version prepared for a testing live. This site is being hosting by Google Cloud Platform.
+If you want to try a live and free demo of SimpleBuy, you can do it, just need to go to <a href="https://simplebuy-276303.uc.r.appspot.com">SimpleBuy</a> and you will see a SimpleBuy test version prepared for a testing live. This site is being hosting by Google Cloud Platform.
 
 On this SimpleBuy version you can test the following:
 

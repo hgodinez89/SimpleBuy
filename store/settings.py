@@ -28,7 +28,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = Secrets.SECRET_KEY_DJANGO
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['*']
 
@@ -199,7 +199,7 @@ STATIC_URL = '/static/'
 
 # If you want to test locally you need to comment this below line
 # this line is neccesary if you want to deploy on GCP
-STATIC_ROOT = 'static'
+# STATIC_ROOT = 'static'
 
 # Folder static
 STATICFILES_DIRS = (
