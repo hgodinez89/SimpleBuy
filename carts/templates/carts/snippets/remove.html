@@ -1,0 +1,7 @@
+{% load i18n %}
+
+<form action="{% url 'carts:remove' %}" method="POST">
+    {% csrf_token %}
+    <input type="hidden" name="product_id" value="{{ product.id }}">
+    <button type="submit" class="text-xs hover:underline hover:text-blue-800">{% trans "Delete" %}</button>
+</form>

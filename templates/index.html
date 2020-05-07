@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+
+{% load i18n %}
+
+{% block content %}
+
+{% include 'header.html' %}
+
+<a name="products">
+    <span></span>
+</a>
+
+<div class="container mx-auto p-8 mt-4">    
+    <h1 class="text-gray-800 text-2xl font-bold mb-6 ">{{ message }}</h1>
+    
+    {% include 'products/snippets/list.html' %}
+
+    {% if is_paginated %}
+        <ul class="flex justify-center mt-4 mb-8">
+            {% if page_obj.has_previous %}
+                <li>
+                    <a href="?page={{ page_obj.previous_page_number }}#products" class="flex items-center font-bold mx-1 px-3 py-2 bg-gray-200 text-gray-700 rounded-lg hover:bg-gray-700 hover:text-gray-200">{% trans "Previous" %}</a>
+                </li>
+            {% else %}
+                <li>
+                    <span class="mx-1 px-3 py-2 bg-gray-200 text-gray-500 rounded-lg disabled:opacity-75 cursor-not-allowed flex items-center font-bold cursor-not-allowed">{% trans "Previous" %}</span>
+                </li>
+            {% endif %}
+
+            {% for i in paginator.page_range %}
+                <li class="mt-2">
+                    {% if page_obj.number == i %}
+                        <span class="mx-1 px-3 py-2 bg-blue-500 text-white cursor-not-allowed rounded-lg font-bold">{{ i }}</span>
+                    {% else %}
+                        <a href="?page={{ i }}#products" class="mx-1 px-3 py-2 bg-gray-200 text-gray-700 hover:bg-gray-700 hover:text-gray-200 rounded-lg font-bold">{{ i }}</a>
+                    {% endif %}
+                </li>
+            {% endfor %}
+
+            {% if page_obj.has_next %}
+                <li>
+                    <a href="?page={{ page_obj.next_page_number }}#products" class="flex items-center mx-1 px-3 py-2 bg-gray-200 text-gray-700 hover:bg-gray-700 hover:text-gray-200 rounded-lg font-bold">{% trans "Next" %}</a>
+                </li>
+            {% else %}
+                <li>
+                    <span class="flex items-center mx-1 px-3 py-2 bg-gray-200 text-gray-500 rounded-lg disabled:opacity-75 cursor-not-allowed font-bold cursor-not-allowed">{% trans "Next" %}</span>
+                </li>
+            {% endif %}
+        </ul>
+    {% endif %}
+
+</div>
+
+{% include 'footbar.html' %}
+
+{% endblock %}

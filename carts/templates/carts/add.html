@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+
+{% load i18n %}
+
+{% load product_extras %}
+{% load cart_extras %}
+
+{% block content %}
+  <div class="container mx-auto mb-4 mt-12 px-20">
+    <div class="flex justify-between bg-white border rounded py-4 px-2">
+        <div class="text-xs text-gray-800 ml-4">
+            <table>
+                <tbody>
+                    <tr>
+                        <th rowspan="4" class="pr-8">
+                            {% if product.image %}
+                                <img src="{{ product.image.url }}" alt="Product image" width="60" height="60">
+                            {% endif %}
+                        </th>
+                    </tr>
+                    <tr>
+                        <td>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" class="inline-block" style="fill: #4299e1;"><path d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm-1.25 17.292l-4.5-4.364 1.857-1.858 2.643 2.506 5.643-5.784 1.857 1.857-7.5 7.643z"/></svg>
+                            <span class="ml-2">{{ quantity | quantity_add_format }} {% trans " to shopping cart" %}</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <a href="{% url 'products:product' product.slug %}" class="font-normal text-blue-700 underline hover:text-blue-800 ml-8 pl-1 -mt-1">
+                                {{ product.title }}
+                            </a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <span class="text-red-700 ml-8 pl-1">{{ product.price | price_format }}</span>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="flex items-center mr-4">
+            <a href="{% url 'carts:cart' %}" class="inline-block mr-2 bg-transparent text-gray-700 hover:bg-blue-500 hover:text-white text-sm py-2 px-4 font-semibold rounded hover:border-none hover:border-transparent border border-gray-500 focus:outline-none focus:shadow-outline">{% trans "View cart" %}</a>
+            <a href="{% url 'index' %}" class="bg-blue-600 hover:bg-blue-500 text-white text-sm py-2 px-4 font-semibold rounded focus:outline-none focus:shadow-outline">{% trans "Continue shopping" %}</a>
+        </div>
+    </div>
+</div>
+{% endblock %}

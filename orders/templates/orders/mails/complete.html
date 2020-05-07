@@ -1,0 +1,17 @@
+{% load i18n %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% trans "Your SimpleBuy order" %}</title>
+</head>
+<body>
+    <div>
+        <h3>{% trans "Hello " %} {{ user.username }} {% trans " your order has been confirmed." %}</h3>
+        <p>{% trans "You can visit our website to see your order." %}</p>
+        <a href="{{ next_url }}" target="_blank">{% trans "My orders" %}</a>
+    </div>
+</body>
+</html>

@@ -1,0 +1,280 @@
+{% load i18n %}
+
+{% load cart_extras %}
+
+{% url 'login' as login %}
+{% url 'register' as register %}
+{% url 'carts:cart' as cart %}
+{% url 'shipping_address:shipping_address' as shipping_address %}
+{% url 'orders:completeds' as completeds %}
+{% url 'billing_profiles:billing_profiles' as billing_profiles %}
+
+<!-- Desktop version -->
+<nav x-data="{ open: false }" @keydown.window.escape="open = false" class="bg-gray-800">
+  <div class="container px-6 mx-auto lg:px-8">
+    <div class="flex items-center h-16">
+      <div class="flex items-center flex-grow">
+        <div class="flex-shrink-0">
+          <h1 class="text-lg font-semibold tracking-widest text-white">
+            <a href="{% url 'index' %}">SimpleBuy</br>
+              <p class="font-semibold text-xs tracking-widest text-blue-500 -mt-1">Online Store</p>
+            </a>
+          </h1>
+        </div>
+        <div class="hidden lg:block ml-24">
+          <div class="flex items-center">
+            <a href="{% url 'index' %}"
+              class="flex flex-row items-center px-3 py-2 text-sm font-medium text-white bg-gray-900 rounded-md focus:outline-none focus:text-white focus:bg-gray-700">
+              {% trans "Home" %}
+            </a>
+            <a href="{% url 'index' %}#products"
+              class="flex flex-row items-center px-3 py-2 ml-4 text-sm font-medium text-gray-300 rounded-md hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700">
+              {% trans "Shop" %}
+            </a>
+          </div>
+        </div>
+      </div>
+      {% if user.is_authenticated %}
+      <div class="hidden lg:block">
+        <div class="flex items-center ml-4 md:ml-6">
+          <div @click.away="open = false" class="relative ml-3" x-data="{ open: false }">
+            <div>
+              <button @click="open = !open"
+                class="flex items-center max-w-xs text-sm text-white rounded-full focus:outline-none focus:shadow-solid"
+                id="user-menu" aria-label="User menu" aria-haspopup="true" x-bind:aria-expanded="open">
+                <svg width="24" height="24" xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" clip-rule="evenodd"
+                  style="fill: #4299e1;">
+                  <path
+                    d="M12 0c6.623 0 12 5.377 12 12s-5.377 12-12 12-12-5.377-12-12 5.377-12 12-12zm8.127 19.41c-.282-.401-.772-.654-1.624-.85-3.848-.906-4.097-1.501-4.352-2.059-.259-.565-.19-1.23.205-1.977 1.726-3.257 2.09-6.024 1.027-7.79-.674-1.119-1.875-1.734-3.383-1.734-1.521 0-2.732.626-3.409 1.763-1.066 1.789-.693 4.544 1.049 7.757.402.742.476 1.406.22 1.974-.265.586-.611 1.19-4.365 2.066-.852.196-1.342.449-1.623.848 2.012 2.207 4.91 3.592 8.128 3.592s6.115-1.385 8.127-3.59zm.65-.782c1.395-1.844 2.223-4.14 2.223-6.628 0-6.071-4.929-11-11-11s-11 4.929-11 11c0 2.487.827 4.783 2.222 6.626.409-.452 1.049-.81 2.049-1.041 2.025-.462 3.376-.836 3.678-1.502.122-.272.061-.628-.188-1.087-1.917-3.535-2.282-6.641-1.03-8.745.853-1.431 2.408-2.251 4.269-2.251 1.845 0 3.391.808 4.24 2.218 1.251 2.079.896 5.195-1 8.774-.245.463-.304.821-.179 1.094.305.668 1.644 1.038 3.667 1.499 1 .23 1.64.59 2.049 1.043z" />
+                </svg>
+                <span class="ml-2">{{ user.username|lower }}</span>
+                <svg class="fill-current h-4 w-4 mt-1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+                  <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z" /></svg>
+              </button>
+            </div>
+            <div x-show="open" x-transition:enter="transition ease-out duration-100"
+              x-transition:enter-start="transform opaity-0 scale-95"
+              x-transition:enter-end="transform opacity-100 scale-100"
+              x-transition:leave="transition ease-in duration-75"
+              x-transition:leave-start="transform opacity-100 scale-100"
+              x-transition:leave-end="transform opacity-0 scale-95"
+              class="absolute right-0 w-48 mt-2 origin-top-right rounded-md shadow-lg z-40 overflow-visible">
+              <div class="py-1 bg-gray-700 rounded-md shadow-xs">
+                <a href="{{ shipping_address }}"
+                  class="flex flex-row items-center px-4 py-2 text-sm text-gray-300 focus:text-white hover:text-white focus:outline-none hover:bg-gray-600 focus:bg-gray-600">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                    style="fill: #e2e8f0;">
+                    <path
+                      d="M12 3c2.131 0 4 1.73 4 3.702 0 2.05-1.714 4.941-4 8.561-2.286-3.62-4-6.511-4-8.561 0-1.972 1.869-3.702 4-3.702zm0-2c-3.148 0-6 2.553-6 5.702 0 3.148 2.602 6.907 6 12.298 3.398-5.391 6-9.15 6-12.298 0-3.149-2.851-5.702-6-5.702zm0 8c-1.105 0-2-.895-2-2s.895-2 2-2 2 .895 2 2-.895 2-2 2zm8 6h-3.135c-.385.641-.798 1.309-1.232 2h3.131l.5 1h-4.264l-.344.544-.289.456h.558l.858 2h-7.488l.858-2h.479l-.289-.456-.343-.544h-2.042l-1.011-1h2.42c-.435-.691-.848-1.359-1.232-2h-3.135l-4 8h24l-4-8zm-12.794 6h-3.97l1.764-3.528 1.516 1.528h1.549l-.859 2zm8.808-2h3.75l1 2h-3.892l-.858-2z" />
+                  </svg>
+                  <span class="ml-2">{% trans "My addresses" %}</span>
+                </a>
+                <a href="{{ completeds }}"
+                  class="flex flex-row items-center px-4 py-2 text-sm text-gray-300 focus:text-white hover:text-white focus:outline-none hover:bg-gray-600 focus:bg-gray-600">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                    style="fill: #e2e8f0;">
+                    <path
+                      d="M21.698 10.658l2.302 1.342-12.002 7-11.998-7 2.301-1.342 9.697 5.658 9.7-5.658zm-9.7 10.657l-9.697-5.658-2.301 1.343 11.998 7 12.002-7-2.302-1.342-9.7 5.657zm12.002-14.315l-12.002-7-11.998 7 11.998 7 12.002-7z" />
+                  </svg>
+                  <span class="ml-2">{% trans "My orders" %}</span>
+                </a>
+                <a href="{{ billing_profiles }}"
+                  class="flex flex-row items-center px-4 py-2 text-sm text-gray-300 focus:text-white hover:text-white focus:outline-none hover:bg-gray-600 focus:bg-gray-600">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                    style="fill: #e2e8f0;">
+                    <path
+                      d="M22 2h-14c-1.104 0-2 .896-2 2v4h16v3.5c0 .276-.224.5-.5.5h-1.5v2h2c1.104 0 2-.896 2-2v-8c0-1.104-.896-2-2-2zm0 3h-14v-.5c0-.276.224-.5.5-.5h13c.276 0 .5.224.5.5v.5zm-6 5h-14c-1.104 0-2 .896-2 2v8c0 1.104.896 2 2 2h14c1.104 0 2-.896 2-2v-8c0-1.104-.896-2-2-2zm-11 10h-2v-1h2v1zm3 0h-2v-1h2v1zm.32-3.377c-.383.239-.836.377-1.32.377-1.381 0-2.5-1.119-2.5-2.5s1.119-2.5 2.5-2.5c.484 0 .937.138 1.32.377-.531.552-.857 1.3-.857 2.123 0 .824.326 1.571.857 2.123zm3.68 3.377h-2v-1h2v1zm-1-3c-1.381 0-2.5-1.119-2.5-2.5s1.119-2.5 2.5-2.5 2.5 1.119 2.5 2.5-1.119 2.5-2.5 2.5zm4 3h-2v-1h2v1z" />
+                  </svg>
+                  <span class="ml-2">{% trans "My payments methods" %}</span>
+                </a>
+                <a href="{% url 'logout' %}"
+                  class="flex flex-row items-center px-4 py-2 text-sm text-red-500 hover:text-red-400 hover:bg-gray-600 focus:outline-none focus:text-red-400 focus:bg-gray-600">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                    class="feather feather-log-out">
+                    <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path>
+                    <polyline points="16 17 21 12 16 7"></polyline>
+                    <line x1="21" y1="12" x2="9" y2="12"></line>
+                  </svg>
+                  <span class="ml-2">{% trans "Logout" %}</span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      {% else %}
+      <div class="hidden lg:inline">
+        <div class="flex items-center">
+          <a href="{{ login }}"
+            class="flex flex-row items-center px-3 py-2 text-sm font-medium text-gray-300 rounded-md hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" style="fill: #e2e8f0;">
+              <path
+                d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm7.753 18.305c-.261-.586-.789-.991-1.871-1.241-2.293-.529-4.428-.993-3.393-2.945 3.145-5.942.833-9.119-2.489-9.119-3.388 0-5.644 3.299-2.489 9.119 1.066 1.964-1.148 2.427-3.393 2.945-1.084.25-1.608.658-1.867 1.246-1.405-1.723-2.251-3.919-2.251-6.31 0-5.514 4.486-10 10-10s10 4.486 10 10c0 2.389-.845 4.583-2.247 6.305z" />
+            </svg>
+            <span class="ml-2">{% trans "Login" %}</span>
+          </a>
+          <a href="{{ register }}"
+            class="flex flex-row items-center px-3 py-2 ml-3 text-sm font-medium text-gray-300 rounded-md hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700">
+            <svg xmlns="http://www.w3.org/2000/svg" width="23" height="23" viewBox="0 0 24 24" style="fill: #e2e8f0;">
+              <path
+                d="M8.602 3.7c-1.154 1.937-.635 5.227 1.424 9.025.93 1.712.697 3.02.338 3.815-.982 2.178-3.675 2.799-6.525 3.456-1.964.454-1.839.87-1.839 4.004h-1.995l-.005-1.241c0-2.52.199-3.975 3.178-4.663 3.365-.777 6.688-1.473 5.09-4.418-4.733-8.729-1.35-13.678 3.732-13.678 3.321 0 5.97 2.117 5.97 6.167 0 3.555-1.949 6.833-2.383 7.833h-2.115c.392-1.536 2.499-4.366 2.499-7.842 0-5.153-5.867-4.985-7.369-2.458zm15.398 15.8c0 2.485-2.017 4.5-4.5 4.5s-4.5-2.015-4.5-4.5 2.017-4.5 4.5-4.5 4.5 2.015 4.5 4.5zm-2-.5h-2v-2h-1v2h-2v1h2v2h1v-2h2v-1z" />
+            </svg>
+            <span class="ml-2">{% trans "Sign In" %}</span>
+          </a>
+        </div>
+      </div>
+      {% endif %}
+
+      <div class="hidden lg:inline">
+        <div class="flex items-center">
+          <span class="ml-2 text-gray-300">|</span>
+          <a href="{{ cart }}"
+            class="flex flex-row items-center px-3 py-2 ml-2 text-sm font-medium text-gray-300 rounded-md hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" style="fill: #e2e8f0;">
+              <path
+                d="M24 3l-.743 2h-1.929l-3.474 12h-13.239l-4.615-11h16.812l-.564 2h-13.24l2.937 7h10.428l3.432-12h4.195zm-15.5 15c-.828 0-1.5.672-1.5 1.5 0 .829.672 1.5 1.5 1.5s1.5-.671 1.5-1.5c0-.828-.672-1.5-1.5-1.5zm6.9-7-1.9 7c-.828 0-1.5.671-1.5 1.5s.672 1.5 1.5 1.5 1.5-.671 1.5-1.5c0-.828-.672-1.5-1.5-1.5z" />
+              </svg>
+            <span id="qtyItems"
+              class="mt-3 text-xs text-white font-semibold rounded-full bg-blue-500 h-5 w-5 flex items-center justify-center">{{ request.session.products_quantity|empty_cart_format }}</span>
+          </a>
+        </div>
+      </div>
+
+      <div class="inline lg:hidden">
+        <div class="flex items-center mr-2">
+          <a href="{{ cart }}"
+            class="flex flex-row items-center px-3 py-2 ml-2 text-sm font-medium text-gray-300 rounded-md hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" style="fill: #e2e8f0;">
+              <path
+                d="M24 3l-.743 2h-1.929l-3.474 12h-13.239l-4.615-11h16.812l-.564 2h-13.24l2.937 7h10.428l3.432-12h4.195zm-15.5 15c-.828 0-1.5.672-1.5 1.5 0 .829.672 1.5 1.5 1.5s1.5-.671 1.5-1.5c0-.828-.672-1.5-1.5-1.5zm6.9-7-1.9 7c-.828 0-1.5.671-1.5 1.5s.672 1.5 1.5 1.5 1.5-.671 1.5-1.5c0-.828-.672-1.5-1.5-1.5z" />
+              </svg>
+            <span id="qtyItems"
+              class="mt-3 text-xs text-white font-semibold rounded-full bg-blue-500 h-5 w-5 flex items-center justify-center">{{ request.session.products_quantity|empty_cart_format }}</span>
+          </a>
+        </div>
+      </div>
+
+      <div class="flex -mr-2 lg:hidden">
+        <button @click="open = !open"
+          class="inline-flex items-center justify-center p-2 text-gray-400 rounded-md hover:text-white hover:bg-gray-700 focus:outline-none focus:bg-gray-700 focus:text-white"
+          x-bind:aria-label="open ? 'Close main menu' : 'Main menu'" x-bind:aria-expanded="open">
+          <svg class="w-6 h-6" stroke="currentColor" fill="none" viewBox="0 0 24 24">
+            <path :class="{'hidden': open, 'inline-flex': !open }" class="inline-flex" stroke-linecap="round"
+              stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+            <path :class="{'hidden': !open, 'inline-flex': open }" class="hidden" stroke-linecap="round"
+              stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+          </svg>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Mobile version -->
+  <div :class="{'block': open, 'hidden': !open}" class="hidden lg:hidden">
+    <div class="container px-6 mx-auto">
+      <div class="pt-2 pb-3">
+        <a href="{% url 'index' %}"
+          class="flex flex-row items-center px-3 py-2 text-base font-medium text-white bg-gray-900 rounded-md focus:outline-none focus:text-white focus:bg-gray-700">
+          <span class="ml-2">{% trans "Home" %}</span>
+        </a>
+        <a href="#"
+          class="flex flex-row items-center px-3 py-2 mt-1 text-base font-medium text-gray-300 rounded-md hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700">
+          <span class="ml-2">{% trans "Shop" %}</span>
+        </a>
+      </div>
+    </div>
+    {% if user.is_authenticated %}
+    <div class="container px-6 mx-auto">
+      <div x-data="{ open: false }" class="py-4 border-t border-gray-700">
+        <button @click="open = true" class="flex items-center w-full focus:outline-none">
+          <div class="flex items-center w-full text-left">
+            <div class="flex-shrink-0">
+              <svg width="24" height="24" xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" clip-rule="evenodd"
+                style="fill: #4299e1;">
+                <path
+                  d="M12 0c6.623 0 12 5.377 12 12s-5.377 12-12 12-12-5.377-12-12 5.377-12 12-12zm8.127 19.41c-.282-.401-.772-.654-1.624-.85-3.848-.906-4.097-1.501-4.352-2.059-.259-.565-.19-1.23.205-1.977 1.726-3.257 2.09-6.024 1.027-7.79-.674-1.119-1.875-1.734-3.383-1.734-1.521 0-2.732.626-3.409 1.763-1.066 1.789-.693 4.544 1.049 7.757.402.742.476 1.406.22 1.974-.265.586-.611 1.19-4.365 2.066-.852.196-1.342.449-1.623.848 2.012 2.207 4.91 3.592 8.128 3.592s6.115-1.385 8.127-3.59zm.65-.782c1.395-1.844 2.223-4.14 2.223-6.628 0-6.071-4.929-11-11-11s-11 4.929-11 11c0 2.487.827 4.783 2.222 6.626.409-.452 1.049-.81 2.049-1.041 2.025-.462 3.376-.836 3.678-1.502.122-.272.061-.628-.188-1.087-1.917-3.535-2.282-6.641-1.03-8.745.853-1.431 2.408-2.251 4.269-2.251 1.845 0 3.391.808 4.24 2.218 1.251 2.079.896 5.195-1 8.774-.245.463-.304.821-.179 1.094.305.668 1.644 1.038 3.667 1.499 1 .23 1.64.59 2.049 1.043z" />
+              </svg>
+            </div>
+            <div class="ml-3">
+              <div class="text-base font-medium leading-none text-white">{{ user.username|lower }}</div>
+              <div class="mt-1 text-sm font-medium leading-none text-gray-400">{{ user.email|lower }}</div>
+            </div>
+          </div>
+          <div class="text-white">
+            <svg xmlns="http://www.w3.org/2000/svg" :class="{'rotate-180': open, 'rotate-0': !open}"
+              class="w-4 h-4 mt-1 transition-transform duration-200 transform" viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+              class="feather feather-chevron-down">
+              <polyline points="6 9 12 15 18 9"></polyline>
+            </svg>
+          </div>
+        </button>
+        <div x-show="open" @click.away="open = false" class="px-2 py-4 mt-4 bg-gray-700 rounded-md shadow-xs"
+          role="menu" aria-orientation="vertical" aria-labelledby="user-menu" role="menuitem">
+          <a href="{{ shipping_address }}"
+            class="flex flex-row items-center px-3 py-2 text-base font-medium text-gray-300 rounded-md hover:text-white hover:bg-gray-600 focus:outline-none focus:text- white focus:bg-gray-600"
+            role="menuitem">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" style="fill: #e2e8f0;">
+              <path
+                d="M12 3c2.131 0 4 1.73 4 3.702 0 2.05-1.714 4.941-4 8.561-2.286-3.62-4-6.511-4-8.561 0-1.972 1.869-3.702 4-3.702zm0-2c-3.148 0-6 2.553-6 5.702 0 3.148 2.602 6.907 6 12.298 3.398-5.391 6-9.15 6-12.298 0-3.149-2.851-5.702-6-5.702zm0 8c-1.105 0-2-.895-2-2s.895-2 2-2 2 .895 2 2-.895 2-2 2zm8 6h-3.135c-.385.641-.798 1.309-1.232 2h3.131l.5 1h-4.264l-.344.544-.289.456h.558l.858 2h-7.488l.858-2h.479l-.289-.456-.343-.544h-2.042l-1.011-1h2.42c-.435-.691-.848-1.359-1.232-2h-3.135l-4 8h24l-4-8zm-12.794 6h-3.97l1.764-3.528 1.516 1.528h1.549l-.859 2zm8.808-2h3.75l1 2h-3.892l-.858-2z" />
+            </svg>
+            <span class="ml-2">{% trans "My addresses" %}</span>
+          </a>
+          <a href="{{ completeds }}"
+            class="flex flex-row items-center px-3 py-2 mt-1 text-base font-medium text-gray-300 rounded-md hover:text-white hover:bg-gray-600 focus:outline-none focus:text- white focus:bg-gray-600"
+            role="menuitem">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" style="fill: #e2e8f0;">
+              <path
+                d="M21.698 10.658l2.302 1.342-12.002 7-11.998-7 2.301-1.342 9.697 5.658 9.7-5.658zm-9.7 10.657l-9.697-5.658-2.301 1.343 11.998 7 12.002-7-2.302-1.342-9.7 5.657zm12.002-14.315l-12.002-7-11.998 7 11.998 7 12.002-7z" />
+            </svg>
+            <span class="ml-2">{% trans "My orders" %}</span>
+          </a>
+          <a href="{{ billing_profiles }}"
+            class="flex flex-row items-center px-3 py-2 mt-1 text-base font-medium text-gray-300 rounded-md hover:text-white hover:bg-gray-600 focus:outline-none focus:text- white focus:bg-gray-600"
+            role="menuitem">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" style="fill: #e2e8f0;">
+              <path
+                d="M22 2h-14c-1.104 0-2 .896-2 2v4h16v3.5c0 .276-.224.5-.5.5h-1.5v2h2c1.104 0 2-.896 2-2v-8c0-1.104-.896-2-2-2zm0 3h-14v-.5c0-.276.224-.5.5-.5h13c.276 0 .5.224.5.5v.5zm-6 5h-14c-1.104 0-2 .896-2 2v8c0 1.104.896 2 2 2h14c1.104 0 2-.896 2-2v-8c0-1.104-.896-2-2-2zm-11 10h-2v-1h2v1zm3 0h-2v-1h2v1zm.32-3.377c-.383.239-.836.377-1.32.377-1.381 0-2.5-1.119-2.5-2.5s1.119-2.5 2.5-2.5c.484 0 .937.138 1.32.377-.531.552-.857 1.3-.857 2.123 0 .824.326 1.571.857 2.123zm3.68 3.377h-2v-1h2v1zm-1-3c-1.381 0-2.5-1.119-2.5-2.5s1.119-2.5 2.5-2.5 2.5 1.119 2.5 2.5-1.119 2.5-2.5 2.5zm4 3h-2v-1h2v1z" />
+            </svg>
+            <span class="ml-2">{% trans "My payments methods" %}</span>
+          </a>
+          <a href="{% url 'logout' %}"
+            class="flex flex-row items-center px-3 py-2 mt-1 text-base font-medium text-red-500 rounded-md hover:text-red-400 hover:bg-gray-600 focus:outline-none focus:text-red-400 focus:bg-gray-600"
+            role="menuitem">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+              class="feather feather-log-out">
+              <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path>
+              <polyline points="16 17 21 12 16 7"></polyline>
+              <line x1="21" y1="12" x2="9" y2="12"></line>
+            </svg>
+            <span class="ml-2">{% trans "Logout" %}</span>
+          </a>
+        </div>
+      </div>
+    </div>
+    {% else %}
+    <div class="container px-6 mx-auto">
+      <div class="py-4 border-t border-gray-700">
+        <a href="{{ login }}"
+          class="flex flex-row items-center px-3 py-2 ml-1 mt-1 text-base font-medium text-gray-300 rounded-md hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" style="fill: #e2e8f0;">
+            <path
+              d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm7.753 18.305c-.261-.586-.789-.991-1.871-1.241-2.293-.529-4.428-.993-3.393-2.945 3.145-5.942.833-9.119-2.489-9.119-3.388 0-5.644 3.299-2.489 9.119 1.066 1.964-1.148 2.427-3.393 2.945-1.084.25-1.608.658-1.867 1.246-1.405-1.723-2.251-3.919-2.251-6.31 0-5.514 4.486-10 10-10s10 4.486 10 10c0 2.389-.845 4.583-2.247 6.305z" />
+          </svg>
+          <span class="ml-2">{% trans "Login" %}</span>
+        </a>
+        <a href="{{ register }}"
+          class="flex flex-row items-center px-3 py-2 ml-1 mt-1 text-base font-medium text-gray-300 rounded-md hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700">
+          <svg xmlns="http://www.w3.org/2000/svg" width="23" height="23" viewBox="0 0 24 24" style="fill: #e2e8f0;">
+            <path
+              d="M8.602 3.7c-1.154 1.937-.635 5.227 1.424 9.025.93 1.712.697 3.02.338 3.815-.982 2.178-3.675 2.799-6.525 3.456-1.964.454-1.839.87-1.839 4.004h-1.995l-.005-1.241c0-2.52.199-3.975 3.178-4.663 3.365-.777 6.688-1.473 5.09-4.418-4.733-8.729-1.35-13.678 3.732-13.678 3.321 0 5.97 2.117 5.97 6.167 0 3.555-1.949 6.833-2.383 7.833h-2.115c.392-1.536 2.499-4.366 2.499-7.842 0-5.153-5.867-4.985-7.369-2.458zm15.398 15.8c0 2.485-2.017 4.5-4.5 4.5s-4.5-2.015-4.5-4.5 2.017-4.5 4.5-4.5 4.5 2.015 4.5 4.5zm-2-.5h-2v-2h-1v2h-2v1h2v2h1v-2h2v-1z" />
+          </svg>
+          <span class="ml-2">{% trans "Sign In" %}</span>
+        </a>
+      </div>
+    </div>
+    {% endif %}
+  </div>
+</nav>

@@ -1,0 +1,50 @@
+{% load static %}
+{% load i18n %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="shortcut icon" type="image/png" href="{% static 'images/favicon.ico' %}"/>
+    <!-- SEO Tags -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>{% trans "SimpleBuy.com: Online Shopping for everything you want and more." %}</title>
+    <meta name="description" content={% trans "Free One-Day Delivery on millions of items. Low prices across earth's biggest selection of books, music, DVDs, electronics, computers, software, apparel &amp; accessories, shoes, jewelry, tools &amp; hardware, housewares, furniture, sporting goods, beauty &amp; personal care, groceries &amp; just about anything else." %}/>
+    <meta name="keywords" content={% trans "SimpleBuy, SimpleBuy.com, Books, Online Shopping, Book Store, Magazine, Music, CDs, DVDs, Videos, Electronics, Video Games, Computers, Cell Phones, Toys, Games, Apparel, Accessories, Shoes, Jewelry, Watches, Office Products, Sports &amp; Outdoors, Sporting Goods, Baby Products, Health, Personal Care, Beauty, Home, Garden, Bed &amp; Bath, Furniture, Tools, Hardware, Vacuums, Outdoor Living, Automotive Parts, Pet Supplies" %} />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content={% trans "SimpleBuy.com: Online Shopping for everything you want and more." %} />
+    <meta property="og:description" content={% trans "Free One-Day Delivery on millions of items. Low prices across earth's biggest selection of books, music, DVDs, electronics, computers, software, apparel &amp; accessories, shoes, jewelry, tools &amp; hardware, housewares, furniture, sporting goods, beauty &amp; personal care, groceries &amp; just about anything else." %} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:creator" content="SimpleBuy" />
+    <meta name="twitter:title" content={% trans "SimpleBuy.com: Online Shopping for everything you want and more." %} />
+    <meta name="twitter:description" content={% trans "Free One-Day Delivery on millions of items. Low prices across earth's biggest selection of books, music, DVDs, electronics, computers, software, apparel &amp; accessories, shoes, jewelry, tools &amp; hardware, housewares, furniture, sporting goods, beauty &amp; personal care, groceries &amp; just about anything else." %} />
+    <link rel="stylesheet" href="{% static 'css/styles.min.css' %}" type="text/css"/>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}" type="text/css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
+
+    <!-- Tag Meta for sending information from server to client -->
+    {% if stripe_public_key %}
+        <meta name="stripe_public_key" content="{{ stripe_public_key }}">
+    {% endif %}
+        
+    {% block css %}
+    {% endblock css %}
+</head>
+<body>
+    {% include 'navbar.html' %}
+
+    {% include 'messages.html' %}
+
+    {% block breadcrumb %}
+    {% endblock %}
+
+    {% block content %}
+    {% endblock %}
+</body>
+<script type="text/javascript" src="{% url 'javascript-catalog' %}"></script>
+<script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.js" defer></script>
+
+{% block javascript %}
+{% endblock javascript %}
+</html>

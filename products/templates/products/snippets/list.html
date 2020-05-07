@@ -1,0 +1,5 @@
+<div class="flex flex-row flex-wrap mt-5 w-full">
+    {% for object in product_list %}
+        {% include 'products/snippets/product.html' with product=object %}
+    {% endfor %}
+</div>

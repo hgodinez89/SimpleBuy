@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% load i18n %}
+
+{% block css %}
+    <link rel="stylesheet" href="{% static 'css/stripe.css' %}">
+{% endblock css %}
+    
+{% block content %}
+    <div class="container mx-auto p-8">
+        <h1 class="text-gray-800 text-2xl font-bold">{% trans "New payment method" %}</h1>
+        <div class="mt-4">
+            <form method="post" id="payment-form">
+              {% csrf_token %}
+            
+              <div class="w-2/3">
+                  <div class="" id="card-element" style="height: 2.4em; padding-top: .7em;">
+                      <!-- Stripe create all elements by id -->
+                  </div>
+
+                  <div class="" id="card-errors" role="alert">
+                      <!-- Stripe will put all mistakes by id -->
+                  </div>
+              </div>
+              <button class="mt-6 bg-blue-600 hover:bg-blue-500 text-white text-sm py-2 px-4 font-semibold rounded focus:outline-none focus:shadow-outline"
+                type="submit">
+                {% trans "Add new card" %}
+              </button>
+            </form>
+        </div>
+    </div>
+{% endblock content %}
+
+
+{% block javascript %}
+    <script src="https://js.stripe.com/v3/"></script>
+    <script src="{% static 'js/stripe.js' %}"></script>
+{% endblock javascript %}
+    

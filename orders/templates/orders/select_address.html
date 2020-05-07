@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% load i18n %}
+
+{% block breadcrumb %}
+    {% include 'orders/snippets/breadcrumb.html' %}
+{% endblock breadcrumb %}
+    
+{% block content %}
+    <div class="container mx-auto px-8 mt-2">
+        <h1 class="text-gray-800 text-2xl font-bold">{% trans "Choose a shipping address" %}</h1>
+        <div class="flex flex-row flex-wrap -mx-2 mt-8 mb-16">
+            <div class="w-full sm:w-1/2 md:w-1/3 mb-4 px-2">
+                <div class="flex justify-center bg-white rounded border-2 border-dashed">
+                    <div class="flex items-center" style="height: 228px;">
+                        <h3 class="text-lg font-bold text-gray-700">
+                            {% url 'orders:choose_address' as next_url %}
+                            <a class="stretched-link" href="{% url 'shipping_address:create' %}?next={{ next_url }}" title="New address">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" class="ml-20 mb-2" style="fill: #4a5568;"><path d="M24 9h-9v-9h-6v9h-9v6h9v9h6v-9h9z"/></svg>
+                                {% trans "Add new address" %}
+                            </a>
+                        </h3>
+                    </div>
+                </div>
+            </div>
+            {% for shipping_address in shipping_address %}
+                    {% include 'shipping_address/snippets/shipping_address.html' with choose=True address_used=address_used %}
+            {% endfor %}
+        </div>
+    </div>
+{% endblock content %}
+    

@@ -1,0 +1,25 @@
+{% load product_extras %}
+
+{% load i18n %}
+
+<tr class="text-gray-800 border-t">
+    <th class="text-gray-700 font-semibold text-xs">{{ forloop.counter }}</th>
+    <th>
+        {% if product.image %}
+        <img src="{{ product.image.url }}" alt="Product image" width="60" height="60" class="mx-1 md:ml-8 my-3">
+        {% endif %}
+    </th>
+    <th class="text-left">
+        <a href="{% url 'products:product' product.slug %}"
+            class="text-sm font-normal text-blue-700 underline hover:text-blue-800">{{ product.title }}</a>
+
+        {% for cp in cart.products_related %}
+            {% if cp.product.title == product.title %}
+                <span class="block text-xs font-normal">{% trans "Qty" %}: {{ cp.quantity }}</span>
+            {% endif %}
+        {% endfor %}
+    </th>
+    <th class="text-right">
+        <span class="text-red-700 text-sm font-semibold">{{ product.price | price_format }}</span>
+    </th>
+</tr>

@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% load i18n %}
+
+{% block content %}
+
+    <div class="container mx-auto p-8">
+        <h1 class="text-gray-800 text-2xl font-bold">{% trans "My orders" %}</h1>
+        <div class="flex flex-row flex-wrap -mx-2 mt-8">
+            {% for order in object_list %}
+                {% include 'orders/snippets/order.html' %}
+            {% endfor %}
+        </div>
+    </div>
+    
+{% endblock content %}
+    

@@ -1,0 +1,816 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: 1.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-05-06 22:44-0600\n"
+"PO-Revision-Date: 2020-03-22 HO:MI+ZONE\n"
+"Last-Translator: Hanzel Godinez <hgodinez89@hotmail.com>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: billing_profiles/templates/billing_profiles/billing_profiles.html:7
+#: orders/templates/orders/payment.html:12
+msgid "Payment methods"
+msgstr "Métodos de pago"
+
+#: billing_profiles/templates/billing_profiles/billing_profiles.html:19
+#: billing_profiles/templates/billing_profiles/create.html:13
+#: orders/templates/orders/payment.html:21
+msgid "New payment method"
+msgstr "Nuevo método de pago"
+
+#: billing_profiles/templates/billing_profiles/billing_profiles.html:21
+#: orders/templates/orders/payment.html:23
+msgid "We accept all major credit and debit cards."
+msgstr "Aceptamos la mayoría de tarjetas de crédito y débito"
+
+#: billing_profiles/templates/billing_profiles/billing_profiles.html:34
+#: orders/templates/orders/payment.html:36
+msgid "Add a card"
+msgstr "Agregar una tarjeta"
+
+#: billing_profiles/templates/billing_profiles/create.html:29
+msgid "Add new card"
+msgstr "Agregar nueva tarjeta"
+
+#: billing_profiles/templates/billing_profiles/snippets/billing_profile.html:27
+msgid "Ending:"
+msgstr "Terminación:"
+
+#: billing_profiles/templates/billing_profiles/snippets/billing_profile.html:47
+#: billing_profiles/templates/billing_profiles/snippets/billing_profile.html:61
+#: shipping_address/templates/shipping_address/snippets/shipping_address.html:42
+msgid "Choose"
+msgstr "Seleccionar"
+
+#: billing_profiles/templates/billing_profiles/snippets/billing_profile.html:50
+msgid "Default card"
+msgstr "Tarjeta principal"
+
+#: billing_profiles/templates/billing_profiles/snippets/billing_profile.html:63
+#: shipping_address/templates/shipping_address/snippets/shipping_address.html:29
+msgid "Set as default"
+msgstr "Definir como principal"
+
+#: billing_profiles/templates/billing_profiles/snippets/billing_profile.html:71
+#: carts/templates/carts/snippets/remove.html:6
+#: shipping_address/templates/shipping_address/snippets/shipping_address.html:26
+msgid "Delete"
+msgstr "Eliminar"
+
+#: billing_profiles/templates/billing_profiles/snippets/billing_profile.html:80
+msgid "You dont't have payment methods yet!"
+msgstr "No tienes métodos de pago aún!"
+
+#: billing_profiles/views.py:48
+msgid "Card created successfully. Now you can choose it."
+msgstr "Tarjeta creada exitosamente. Ahora puedes seleccionarla."
+
+#: billing_profiles/views.py:52
+msgid "Card created successfully."
+msgstr "Tarjeta creada exitosamente."
+
+#: billing_profiles/views.py:67
+msgid "Card successfully updated."
+msgstr "Tarjeta actualizada exitosamente."
+
+#: billing_profiles/views.py:79
+msgid "The default card cannot be removed."
+msgstr "La tarjeta por defecto no puede removerse."
+
+#: billing_profiles/views.py:87
+msgid "The card is associated with an order, therefore it cannot be removed."
+msgstr ""
+"La dirección se encuentra asociada a una orden, por ello no puede ser "
+"eliminada."
+
+#: billing_profiles/views.py:93
+msgid "Card successfully removed."
+msgstr "Tarjeta removida exitosamente"
+
+#: carts/templates/carts/add.html:24
+msgid " to shopping cart"
+msgstr " al carrito de compras"
+
+#: carts/templates/carts/add.html:43
+msgid "View cart"
+msgstr "Ver carrito"
+
+#: carts/templates/carts/add.html:44 carts/templates/carts/cart.html:67
+msgid "Continue shopping"
+msgstr "Seguir comprando"
+
+#: carts/templates/carts/cart.html:16
+msgid "Your products in cart"
+msgstr "Tus productos en el carrito"
+
+#: carts/templates/carts/cart.html:23
+#: orders/templates/orders/snippets/order.html:36
+msgid "Quantity"
+msgstr "Cantidad"
+
+#: carts/templates/carts/cart.html:24 orders/templates/orders/confirm.html:74
+#: orders/templates/orders/order.html:20
+msgid "Price"
+msgstr "Precio"
+
+#: carts/templates/carts/cart.html:55
+#: orders/templates/orders/snippets/order.html:44
+msgid "Subtotal"
+msgstr "Subtotal"
+
+#: carts/templates/carts/cart.html:58
+msgid "Proceed to pay"
+msgstr "Proceder al pago"
+
+#: carts/templates/carts/cart.html:65
+msgid "Your cart is empty"
+msgstr "No tienes productos en tu carrito de compras"
+
+#: carts/templates/carts/snippets/add.html:23
+msgid "Add to cart"
+msgstr "Agregar al carrito"
+
+#: carts/templatetags/cart_extras.py:10
+msgid "products"
+msgstr "productos"
+
+#: carts/templatetags/cart_extras.py:10
+msgid "product"
+msgstr "producto"
+
+#: carts/templatetags/cart_extras.py:17
+msgid "added "
+msgstr "agregados"
+
+#: carts/templatetags/cart_extras.py:17
+msgid "added"
+msgstr "agregado"
+
+#: carts/templatetags/cart_extras.py:30
+msgid "items"
+msgstr "items"
+
+#: carts/templatetags/cart_extras.py:30
+msgid "item"
+msgstr "item"
+
+#: orders/mails.py:25
+msgid "Your SimpleBuy order #"
+msgstr "Tu pedido SimpleBuy #"
+
+#: orders/mails.py:33
+msgid "Important message"
+msgstr "Mensaje importante"
+
+#: orders/models.py:102
+msgid "Compra por ({}) productos "
+msgstr "Shopping for ({}) products "
+
+#: orders/templates/orders/address.html:12
+msgid "Shipping address"
+msgstr "Dirección de envío"
+
+#: orders/templates/orders/address.html:20
+#: shipping_address/templates/shipping_address/snippets/shipping_address.html:9
+msgid "Default address"
+msgstr "Dirección principal"
+
+#: orders/templates/orders/address.html:26
+msgid "Another address"
+msgstr "Otra dirección"
+
+#: orders/templates/orders/address.html:47
+msgid "Deliver to this address"
+msgstr "Entregar a esta dirección"
+
+#: orders/templates/orders/address.html:51
+msgid "Register your shipping address"
+msgstr "Registra tu dirección de envío"
+
+#: orders/templates/orders/address.html:54
+msgid "New shipping address"
+msgstr "Nueva dirección de envío"
+
+#: orders/templates/orders/confirm.html:11
+msgid "Confirm your order"
+msgstr "Confirmar tu pedido"
+
+#: orders/templates/orders/confirm.html:16
+msgid "Shipping Address"
+msgstr "Dirección de envío"
+
+#: orders/templates/orders/confirm.html:25
+msgid "Payment method"
+msgstr "Método de pago"
+
+#: orders/templates/orders/confirm.html:44
+msgid "Card ending in "
+msgstr "Tarjeta terminación"
+
+#: orders/templates/orders/confirm.html:48
+msgid "Promotional code"
+msgstr "Código promocional"
+
+#: orders/templates/orders/confirm.html:51
+msgid "Promo code"
+msgstr "Código promocional"
+
+#: orders/templates/orders/confirm.html:55
+msgid "Apply"
+msgstr "Aplicar"
+
+#: orders/templates/orders/confirm.html:62
+msgid "Code successfully applied"
+msgstr "Código aplicado exitosamente"
+
+#: orders/templates/orders/confirm.html:67
+#: orders/templates/orders/snippets/resume.html:18 orders/utils.py:24
+#: store/views.py:32
+msgid "Products"
+msgstr "Productos"
+
+#: orders/templates/orders/mails/complete.html:8
+msgid "Your SimpleBuy order"
+msgstr "Tu pedido SimpleBuy"
+
+#: orders/templates/orders/mails/complete.html:12
+msgid "Hello "
+msgstr "Hola "
+
+#: orders/templates/orders/mails/complete.html:12
+msgid " your order has been confirmed."
+msgstr " tu orden ha sido confirmada."
+
+#: orders/templates/orders/mails/complete.html:13
+msgid "You can visit our website to see your order."
+msgstr "Puedes visitar nuestra página web para ver tu orden."
+
+#: orders/templates/orders/mails/complete.html:14
+#: orders/templates/orders/orders.html:8 templates/footbar.html:71
+#: templates/navbar.html:79 templates/navbar.html:231
+msgid "My orders"
+msgstr "Mis pedidos"
+
+#: orders/templates/orders/order.html:11
+msgid "Check your order"
+msgstr "Verifica tu pedido"
+
+#: orders/templates/orders/payment.html:14
+msgid "Choose another card"
+msgstr "Seleccionar otra tarjeta"
+
+#: orders/templates/orders/payment.html:39
+msgid "Confirm"
+msgstr "Confirmar"
+
+#: orders/templates/orders/select_address.html:11
+msgid "Choose a shipping address"
+msgstr "Selecciona una dirección de envío"
+
+#: orders/templates/orders/select_address.html:20
+#: shipping_address/templates/shipping_address/shipping_address.html:16
+msgid "Add new address"
+msgstr "Agregar nueva dirección"
+
+#: orders/templates/orders/snippets/order.html:8
+msgid "Order placed"
+msgstr "Pedido realizado"
+
+#: orders/templates/orders/snippets/order.html:9
+msgid "Total"
+msgstr "Total"
+
+#: orders/templates/orders/snippets/order.html:10
+msgid "Shipped to"
+msgstr "Envíado a"
+
+#: orders/templates/orders/snippets/order.html:40
+msgid "Unit price"
+msgstr "Precio unitario"
+
+#: orders/templates/orders/snippets/order.html:57
+msgid "Order #"
+msgstr "Orden #"
+
+#: orders/templates/orders/snippets/product.html:18
+msgid "Qty"
+msgstr "Cant"
+
+#: orders/templates/orders/snippets/resume.html:7
+msgid "Order summary"
+msgstr "Resumen del pedido"
+
+#: orders/templates/orders/snippets/resume.html:23
+msgid "Promo code:"
+msgstr "Código promocional"
+
+#: orders/templates/orders/snippets/resume.html:30
+msgid "Shipping:"
+msgstr "Envío:"
+
+#: orders/templates/orders/snippets/resume.html:39
+msgid "Total (Taxes included):"
+msgstr "Total (Impuestos incluidos):"
+
+#: orders/templates/orders/snippets/resume.html:47
+msgid "Place your order"
+msgstr "Confirmar tu pedido"
+
+#: orders/templates/orders/snippets/resume.html:51
+msgid "Cancel your order"
+msgstr "Cancelar tu pedido"
+
+#: orders/utils.py:26
+msgid "Shipping"
+msgstr "Dirección"
+
+#: orders/utils.py:28
+msgid "Payment"
+msgstr "Pago"
+
+#: orders/utils.py:30
+msgid "Place order"
+msgstr "Confirmación"
+
+#: orders/views.py:126
+msgid "Order cancelled"
+msgstr "Orden cancelada"
+
+#: orders/views.py:151
+msgid "Purchase successfully completed"
+msgstr "Compra completada exitosamente"
+
+#: products/templates/products/search.html:7
+msgid "Results for: "
+msgstr "Resultados para: "
+
+#: products/templates/products/snippets/product.html:17
+msgid "See more"
+msgstr "Ver más"
+
+#: products/templates/products/snippets/search.html:6
+msgid "Search"
+msgstr "Buscar"
+
+#: products/views.py:22 store/views.py:31
+msgid "Product List"
+msgstr "Listado de productos"
+
+#: shipping_address/forms.py:20
+msgid "Address 1"
+msgstr "Calle 1"
+
+#: shipping_address/forms.py:21
+msgid "Address 2"
+msgstr "Calle 2"
+
+#: shipping_address/forms.py:22
+msgid "City"
+msgstr "Ciudad"
+
+#: shipping_address/forms.py:23
+msgid "State/Province"
+msgstr "Estado/Provincia"
+
+#: shipping_address/forms.py:24
+msgid "Country"
+msgstr "País"
+
+#: shipping_address/forms.py:25
+msgid "Zip Code"
+msgstr "Código Postal"
+
+#: shipping_address/forms.py:26
+msgid "Other"
+msgstr "Referencias"
+
+#: shipping_address/templates/shipping_address/create.html:8
+msgid "New address"
+msgstr "Nueva dirección"
+
+#: shipping_address/templates/shipping_address/create.html:9
+msgid "Add"
+msgstr "Agregar"
+
+#: shipping_address/templates/shipping_address/delete.html:9
+msgid "Are you sure to delete the address?"
+msgstr "Esta seguro de eliminar la dirección?"
+
+#: shipping_address/templates/shipping_address/delete.html:10
+msgid "Back"
+msgstr "Regresar"
+
+#: shipping_address/templates/shipping_address/delete.html:11
+msgid "Yes, I agree"
+msgstr "Sí, Estoy de acuerdo"
+
+#: shipping_address/templates/shipping_address/shipping_address.html:8
+#: templates/footbar.html:72 templates/navbar.html:70 templates/navbar.html:222
+msgid "My addresses"
+msgstr "Mis direcciones"
+
+#: shipping_address/templates/shipping_address/snippets/shipping_address.html:24
+msgid "Edit"
+msgstr "Editar"
+
+#: shipping_address/templates/shipping_address/update.html:8
+msgid "Edit address"
+msgstr "Editar dirección"
+
+#: shipping_address/templates/shipping_address/update.html:9
+msgid "Update"
+msgstr "Actualizar"
+
+#: shipping_address/views.py:42
+msgid "Address successfully updated"
+msgstr "Dirección actualizada exitosamente"
+
+#: shipping_address/views.py:57
+msgid "Address successfully deleted"
+msgstr "Dirección eliminada exitosamente"
+
+#: shipping_address/views.py:63
+msgid "The default address cannot be removed."
+msgstr "La dirección por defecto no puede ser removida."
+
+#: shipping_address/views.py:71
+msgid ""
+"The address is associated with an order, therefore it cannot be removed."
+msgstr ""
+"La dirección se encuentra asociada a una orden, por ello no puede ser "
+"eliminada."
+
+#: shipping_address/views.py:95 shipping_address/views.py:99
+msgid "Address created successfully"
+msgstr "Dirección creada exitosamente"
+
+#: store/forms.py:9 templates/users/login.html:21
+msgid "Username"
+msgstr "Usuario"
+
+#: store/forms.py:15
+msgid "Email"
+msgstr "Email"
+
+#: store/forms.py:21 templates/users/login.html:29
+msgid "Password"
+msgstr "Contraseña"
+
+#: store/forms.py:28
+msgid "Confirm Password"
+msgstr "Confirmar Contraseña"
+
+#: store/forms.py:38
+msgid "Username does already exists"
+msgstr "El username ya se encuentra registrado"
+
+#: store/forms.py:46
+msgid "Email does already exists"
+msgstr "El email ya se encuentra registrado"
+
+#: store/forms.py:54
+msgid "The password does not match"
+msgstr "El password no coincide"
+
+#: store/settings.py:175
+msgid "English"
+msgstr "Inglés"
+
+#: store/settings.py:176
+msgid "Spanish"
+msgstr "Español"
+
+#: store/views.py:52
+msgid "Welcome"
+msgstr "Bienvenido"
+
+#: store/views.py:59
+msgid "Invalid user or password"
+msgstr "Usuario o contraseña no validos"
+
+#: store/views.py:68
+msgid "Session ended successfully"
+msgstr "Sesión finalizada exitosamente"
+
+#: store/views.py:86
+msgid "User successfully created"
+msgstr "Usuario creado exitosamente"
+
+#: templates/404.html:13 templates/404.html:19 templates/404.html:24
+#: templates/500.html:13 templates/500.html:19 templates/500.html:24
+#: templates/base.html:12 templates/base.html:16 templates/base.html:20
+msgid "SimpleBuy.com: Online Shopping for everything you want and more."
+msgstr "SimpleBuy.com: Compra en línea de todo lo que quieras y más."
+
+#: templates/404.html:15 templates/404.html:21 templates/404.html:26
+#: templates/500.html:15 templates/500.html:21 templates/500.html:26
+#: templates/base.html:13 templates/base.html:17 templates/base.html:21
+msgid ""
+"Free One-Day Delivery on millions of items. Low prices across earth's "
+"biggest selection of books, music, DVDs, electronics, computers, software, "
+"apparel &amp; accessories, shoes, jewelry, tools &amp; hardware, housewares, "
+"furniture, sporting goods, beauty &amp; personal care, groceries &amp; just "
+"about anything else."
+msgstr ""
+"Entrega gratis de un día en millones de artículos. Precios bajos en la "
+"selección más grande del mundo en libros, música, DVDs, electrónicos, "
+"computadoras, software, ropa y accesorios, zapatos, joyería, herramientas y "
+"ferretería, artículos del hogar, muebles, artículos deportivos, belleza y "
+"cuidado personal, alimentos y prácticamente todo lo demás que puedas "
+"imaginar."
+
+#: templates/404.html:17 templates/500.html:17 templates/base.html:14
+msgid ""
+"SimpleBuy, SimpleBuy.com, Books, Online Shopping, Book Store, Magazine, "
+"Music, CDs, DVDs, Videos, Electronics, Video Games, Computers, Cell Phones, "
+"Toys, Games, Apparel, Accessories, Shoes, Jewelry, Watches, Office Products, "
+"Sports &amp; Outdoors, Sporting Goods, Baby Products, Health, Personal Care, "
+"Beauty, Home, Garden, Bed &amp; Bath, Furniture, Tools, Hardware, Vacuums, "
+"Outdoor Living, Automotive Parts, Pet Supplies"
+msgstr ""
+"SimpleBuy, SimpleBuy.com, Books, Online Shopping, Book Store, Magazine, "
+"Music, CDs, DVDs, Videos, Electrónics, Videojuegos, Computadoras, Celulares, "
+"Juguetes, Juegos, Vestimenta, Accesorios, Zapatos, Joyería, Relojes, "
+"Productos de Oficina, Deportes, Artículos Deportivos, Productos de Bebé, "
+"Salud, Cuidado Personal, Beauty, Home, Garden, Bed &amp; Bath, Furniture, "
+"Tools, Hardware, Vacuums, Partes automotrices, Suministros de Mascostas"
+
+#: templates/404.html:33 templates/500.html:33
+msgid "We had some troubles with your request."
+msgstr "Tuvimos algunos problemas con tu solicitud."
+
+#: templates/404.html:34 templates/500.html:34
+msgid "We're Sorry!"
+msgstr "Lo sentimos!"
+
+#: templates/404.html:35 templates/500.html:35
+msgid "Go SimpleBuy Home"
+msgstr "Ir a SimpleBuy"
+
+#: templates/footbar.html:21
+msgid "Go to"
+msgstr "Ir a"
+
+#: templates/footbar.html:23 templates/navbar.html:28 templates/navbar.html:179
+msgid "Home"
+msgstr "Inicio"
+
+#: templates/footbar.html:24 templates/navbar.html:32 templates/navbar.html:183
+msgid "Shop"
+msgstr "Comprar"
+
+#: templates/footbar.html:28
+msgid "Make Money with Us"
+msgstr "Haz Dinero con Nosotros"
+
+#: templates/footbar.html:31
+msgid ""
+"Join Us.</br></br>Its easy and free to join</br>Get up and running today.</"
+"br>Just one approval to join — no third-party advertiser approvals.</br>Just "
+"write to us to affiliate@simplebuy.com</br></br>Seen you soon!"
+msgstr ""
+"Únase a nosotros. </br> </br> Es fácil y gratuito unirse </br> Comience hoy "
+"mismo. </br> Solo requiere una aprobación para unirse: sin aprobaciones de "
+"terceros. </br> Solo escríbanos a affiliate@simplebuy.com </br> </br> ¡Nos "
+"vemos pronto!"
+
+#: templates/footbar.html:32
+msgid "Become an Affiliate"
+msgstr "Convertirte en Afiliado"
+
+#: templates/footbar.html:36
+msgid ""
+"Sale With Us.</br></br>Its easy and free to sale with us</br>Get up and "
+"running today.</br>Just one approval to join — no third-party advertiser "
+"approvals.</br>Just write to us to sales@simplebuy.com</br></br>Seen you "
+"soon!"
+msgstr ""
+"Venda con nosotros. </br> </br> Es fácil y gratis vender con nosotros </br> "
+"Comience hoy mismo.</br> Solo requiere una aprobación para unirse: sin "
+"aprobaciones de terceros.</br> Simplemente escríbanos a sales@simplebuy.com "
+"</br> </br>¡Nos vemos pronto!"
+
+#: templates/footbar.html:37
+msgid "Sell on SimpleBuy"
+msgstr "Vender en SimpleBuy"
+
+#: templates/footbar.html:43
+msgid "Policies"
+msgstr "Políticas"
+
+#: templates/footbar.html:46
+msgid ""
+"Shipping Rates</br></br>Our shipping rates are the most cheapest:</br></br>* "
+"National Rates: $5.00</br>* National Rates: $15.00</br></br>Seen you soon!"
+msgstr ""
+"Tarifas de envío </br> </br> Nuestras tarifas de envío son las más baratas: "
+"</br> </br> * NacionalTarifas: $ 5.00 </br> * Tarifas nacionales: $ 15.00 </"
+"br> </br> ¡Nos vemos pronto!"
+
+#: templates/footbar.html:47
+msgid "Shipping Rates"
+msgstr "Tarifas de Envío"
+
+#: templates/footbar.html:51
+msgid ""
+"SimpleBuy Assistant</br></br>If you have some doubts or you just need help "
+"with some products, orders, etc.</br>You can write to us to info@simplebuy."
+"com</br></br>Seen you soon!"
+msgstr ""
+"Asistente SimpleBuy </br> </br> Si tienes dudas o solo necesitas ayuda con "
+"algunos productos, pedidos, etc. </br> Puede escribirnos a info@simplebuy."
+"com </br> </br> ¡Nos vemos pronto!"
+
+#: templates/footbar.html:52
+msgid "SimpleBuy Assistant"
+msgstr "Asistencia SimpleBuy"
+
+#: templates/footbar.html:56
+msgid ""
+"Return & Replacements</br></br>Nothing is more important than the health and "
+"well-being of our customers, employees, seller partners and the communities "
+"we serve.</br></br>Seen you soon!"
+msgstr ""
+"Devolución y reemplazos </br> </br> Nada es más importante que la salud y "
+"bienestar de nuestros clientes, empleados, socios vendedores y las "
+"comunidades a las que servimos. </br> </br> ¡Nos vemos pronto!"
+
+#: templates/footbar.html:57
+msgid "Return & Replacements"
+msgstr "Devoluciones & Remplazos"
+
+#: templates/footbar.html:61
+msgid ""
+"Help</br></br>If you need help with some products, orders, etc, you can "
+"write to us to info@simplebuy.com</br></br>Seen you soon!"
+msgstr ""
+"Ayuda </br> </br> Si necesita ayuda con algunos productos, pedidos, etc., "
+"puede escribirnos a info@simplebuy.com </br> </br> ¡Nos vemos pronto!"
+
+#: templates/footbar.html:62
+msgid "Help"
+msgstr "Ayuda"
+
+#: templates/footbar.html:68
+msgid "Account"
+msgstr "Cuenta"
+
+#: templates/footbar.html:73 templates/navbar.html:88 templates/navbar.html:240
+msgid "My payments methods"
+msgstr "Mis métodos de pago"
+
+#: templates/footbar.html:75 templates/navbar.html:115
+#: templates/navbar.html:266 templates/users/login.html:42
+msgid "Login"
+msgstr "Ingresar"
+
+#: templates/footbar.html:76 templates/navbar.html:123
+#: templates/navbar.html:274 templates/users/register.html:9
+#: templates/users/register.html:49
+msgid "Sign In"
+msgstr "Registrarse"
+
+#: templates/footbar.html:92
+msgid ""
+"Privacy & Terms</br></br>We know that you care how information about you is "
+"used and shared, and we appreciate your trust that we will do so carefully "
+"and sensibly. This Privacy Notice describes how SimpleBuy.com and its "
+"affiliates (collectively “SimpleBuy”) collect and process your personal "
+"information through SimpleBuy websites, devices, products, services, online "
+"and physical stores, and applications that reference this Privacy Notice "
+"(together SimpleBuy Services”)."
+msgstr ""
+"Privacidad y términos </br> </br> Sabemos que te importa como tu información "
+"es usada y compartida, por eso apreciamos su confianza y lo haremos con "
+"cuidado y sensatez. Este aviso de privacidad describe cómo SimpleBuy.com y "
+"los afiliados (colectivamente “SimpleBuy”) recopilan y procesan su "
+"información personal a través de sitios web, dispositivos, productos, "
+"servicios de SimpleBuy, en línea, tiendas físicas y aplicaciones que hacen "
+"referencia a este aviso de privacidad"
+
+#: templates/footbar.html:93
+msgid "Privacy & Terms"
+msgstr "Privacidad & Términos"
+
+#: templates/footbar.html:123
+msgid "Change"
+msgstr "Cambiar"
+
+#: templates/header.html:12
+msgid "From anywhere SimpleBuy!"
+msgstr "Desde cualquier lugar SimpleBuy"
+
+#: templates/header.html:16
+msgid "We deliver to the door of your place."
+msgstr "Entregamos hasta la puerta de tu lugar."
+
+#: templates/header.html:20
+msgid "Shop Now"
+msgstr "Comprar"
+
+#: templates/header.html:35
+msgid "Popular Brands"
+msgstr "Marcas Populares"
+
+#: templates/header.html:44
+msgid "Computers, screens, and more.."
+msgstr "Computadoras, pantallas, y más.."
+
+#: templates/header.html:53
+msgid "Computers, drivers, and more.."
+msgstr "Computadoras, discos duros, y más.."
+
+#: templates/header.html:63
+msgid "Computers, iPhones, iPads and more.."
+msgstr "Computadoras, iPhones, iPads, y más.."
+
+#: templates/header.html:71
+msgid "Popular Products"
+msgstr "Productos Populares"
+
+#: templates/header.html:85
+msgid "Acer curved monitor"
+msgstr "Acer monitor curvo"
+
+#: templates/header.html:88
+msgid "24\" | $228.00"
+msgstr "240GB | $65.00"
+
+#: templates/header.html:105
+msgid "MacBook Pro"
+msgstr "MacBook Pro"
+
+#: templates/header.html:108
+msgid "13\" | $1,799.00"
+msgstr "13\" | $2,370.00"
+
+#: templates/header.html:128
+msgid "Samsung SSD Drive"
+msgstr "Samsung SSD Drive"
+
+#: templates/header.html:131
+msgid "240GB | $65.00"
+msgstr "240GB | $65.00"
+
+#: templates/header.html:148
+msgid "iPhone 11 Pro"
+msgstr "iPhone 11 Pro"
+
+#: templates/header.html:151
+msgid "120GB | $1,299.99"
+msgstr "120GB | $1,999.99"
+
+#: templates/index.html:22 templates/index.html:26
+msgid "Previous"
+msgstr "Anterior"
+
+#: templates/index.html:42 templates/index.html:46
+msgid "Next"
+msgstr "Siguiente"
+
+#: templates/navbar.html:99 templates/navbar.html:252
+msgid "Logout"
+msgstr "Salir"
+
+#: templates/users/login.html:8
+msgid "Login to your account"
+msgstr "Inicie sesión en tu cuenta"
+
+#: templates/users/login.html:11
+msgid "Don't have an account?"
+msgstr "No tienes una cuenta?"
+
+#: templates/users/login.html:14
+msgid "Sign Up"
+msgstr "Registrarse"
+
+#: templates/users/login.html:25 templates/users/register.html:18
+msgid "Your username"
+msgstr "Tu usuario"
+
+#: templates/users/login.html:33 templates/users/register.html:34
+msgid "Your password"
+msgstr "Tu contraseña"
+
+#: templates/users/login.html:35
+msgid "Forgot Password?"
+msgstr "Olvidé mi contraseña"
+
+#: templates/users/register.html:26
+msgid "Your email"
+msgstr "Tu email"
+
+#: templates/users/register.html:43
+msgid "Confirm your password"
+msgstr "Confirmar tu contraseña"

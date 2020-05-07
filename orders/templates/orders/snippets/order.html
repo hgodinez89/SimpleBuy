@@ -1,0 +1,61 @@
+{% load i18n %}
+
+{% load product_extras %}
+
+<div class="w-full mb-4 px-2">
+    <div class="bg-gray-200 rounded-t border py-2 px-4">
+        <div class="flex justify-between font-semibold text-xs text-gray-800">
+            <p>{% trans "Order placed" %}</p>
+            <p class="-ml-1">{% trans "Total" %}</p>
+            <p>{% trans "Shipped to" %}</p>
+        </div>
+        <div class="flex justify-between text-xs text-gray-800">
+            <p class="text-xs text-gray-800">{{ order.created_at | date_order_format }}</p>
+            <p class="text-xs text-gray-800 ml-4">{{ order.total | price_format }}</p>
+            <p class="text-xs text-gray-800">{{ order.shipping_address }}</p>
+        </div>
+    </div>
+    <div class="flex justify-start bg-white border-l border-r py-4 px-2">
+        {% for cp in order.cart.products_related %}
+        {% with product=cp.product %}
+
+        <div class="inline-block text-xs text-gray-800 ml-4 mr-10">
+            <table>
+                <tbody>
+                    <tr>
+                        <th rowspan="5" class="pr-8">
+                            {% if product.image %}
+                                <img src="{{ product.image.url }}" alt="Product image" width="60" height="60">
+                            {% endif %}
+                        </th>
+                    </tr>
+                    <tr>
+                        <td colspan="2">{{ product.title }}</td>
+                    </tr>
+                    <tr>
+                        <td>{% trans "Quantity" %}:</td>
+                        <td class="inline-block text-red-700">{{ cp.quantity }}</td>
+                    </tr>
+                    <tr>
+                        <td>{% trans "Unit price" %}:</td>
+                        <td class="inline-block text-red-700">{{ product.price | price_format }}</td>
+                    </tr>
+                    <tr>
+                        <td>{% trans "Subtotal" %}:</td>
+                        <td class="inline-block text-red-700">{{ product.price | total_product_format:cp.quantity }}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        {% endwith %}
+        {% endfor %}
+    </div>
+
+    <div class="bg-white rounded-b border py-2 px-4">
+        <div class="relative font-semibold text-xs text-gray-800">
+            <p class="inline-block">{% trans "Order #" %}</p>
+            <p class="inline-block">{{ order.order_id }}</p>
+        </div>
+    </div>
+</div>

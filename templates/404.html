@@ -1,0 +1,39 @@
+{% load static %}
+{% load i18n %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="shortcut icon" type="image/png" href="{% static 'images/favicon.ico' %}" />
+    <!-- SEO Tags -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>{% trans "SimpleBuy.com: Online Shopping for everything you want and more." %}</title>
+    <meta name="description"
+        content={% trans "Free One-Day Delivery on millions of items. Low prices across earth's biggest selection of books, music, DVDs, electronics, computers, software, apparel &amp; accessories, shoes, jewelry, tools &amp; hardware, housewares, furniture, sporting goods, beauty &amp; personal care, groceries &amp; just about anything else." %} />
+    <meta name="keywords"
+        content={% trans "SimpleBuy, SimpleBuy.com, Books, Online Shopping, Book Store, Magazine, Music, CDs, DVDs, Videos, Electronics, Video Games, Computers, Cell Phones, Toys, Games, Apparel, Accessories, Shoes, Jewelry, Watches, Office Products, Sports &amp; Outdoors, Sporting Goods, Baby Products, Health, Personal Care, Beauty, Home, Garden, Bed &amp; Bath, Furniture, Tools, Hardware, Vacuums, Outdoor Living, Automotive Parts, Pet Supplies" %} />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content={% trans "SimpleBuy.com: Online Shopping for everything you want and more." %} />
+    <meta property="og:description"
+        content={% trans "Free One-Day Delivery on millions of items. Low prices across earth's biggest selection of books, music, DVDs, electronics, computers, software, apparel &amp; accessories, shoes, jewelry, tools &amp; hardware, housewares, furniture, sporting goods, beauty &amp; personal care, groceries &amp; just about anything else." %} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:creator" content="SimpleBuy" />
+    <meta name="twitter:title" content={% trans "SimpleBuy.com: Online Shopping for everything you want and more." %} />
+    <meta name="twitter:description"
+        content={% trans "Free One-Day Delivery on millions of items. Low prices across earth's biggest selection of books, music, DVDs, electronics, computers, software, apparel &amp; accessories, shoes, jewelry, tools &amp; hardware, housewares, furniture, sporting goods, beauty &amp; personal care, groceries &amp; just about anything else." %} />
+    <link rel="stylesheet" href="{% static 'css/styles.min.css' %}" type="text/css" />
+    <link rel="stylesheet" href="{% static 'css/style.css' %}" type="text/css" />
+</head>
+
+<body>
+    <div class="h-screen w-screen bg-gray-800 flex flex-col justify-center items-center">
+        <span class="flex justify-center items-center text-white text-md md:text-4xl">{% trans "We had some troubles with your request." %}</span>
+        <span class="flex justify-center items-center text-white text-md md:text-3xl mb-4">{% trans "We're Sorry!" %}</span>
+        <a href="{% url 'index' %}" class="bg-blue-600 hover:bg-blue-500 text-white text-sm md:text-md py-2 px-8 md:font-semibold rounded focus:outline-none focus:shadow-outline h-10">{% trans "Go SimpleBuy Home" %}</a>
+    </div>
+</body>
+
+</html>
