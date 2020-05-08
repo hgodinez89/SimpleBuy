@@ -99,7 +99,9 @@ def update_language(request):
 
     translation.activate(request.POST.get('language'))
 
-    return set_language(request)
+    set_language(request)
+
+    return redirect(request.POST.get('redirect'))
 
 def handler404(request, *args):
     return render(request, '404.html', status=404)

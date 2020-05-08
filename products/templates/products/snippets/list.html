@@ -1,5 +1,7 @@
 <div class="flex flex-row flex-wrap mt-5 w-full">
+    <div class="mx-auto md:flex md:flex-row md:flex-wrap md:ml-0">
     {% for object in product_list %}
         {% include 'products/snippets/product.html' with product=object %}
     {% endfor %}
+    </div>
 </div>
