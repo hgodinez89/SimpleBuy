@@ -1,38 +1,41 @@
 from django.template.loader import get_template
 
-from django.core.mail import EmailMultiAlternatives
-
 from django.conf import settings
-
-from django.urls import reverse
 
 from django.utils.translation import gettext_lazy as _
 
 from django.utils import translation
 
-class Mail:
+from mailjet_rest import Client
+import os
 
-    @staticmethod
-    def get_absolute_url(url):
-        if settings.DEBUG:
-            return 'http://127.0.0.1:8000{}'.format(
-                reverse(url)
-            )
+class Mail:
     
     @staticmethod
     def send_complete_order(order, user):
         translation.activate(user.language)
-        subject = _('Your SimpleBuy order #') + order.order_id
-        template = get_template('orders/mails/complete.html')
-        content = template.render({
-            'user': user,
-            'next_url': Mail.get_absolute_url('orders:completeds')
-        })
+        mailjet = Client(auth=(settings.MAILJET_PUB_KEY, settings.MAILJET_PRIV_KEY), version='v3.1')
+        data = {
+          'Messages': [
+            {
+              "From": {
+                "Email": "orders@simplebuy.com",
+                "Name": "SimpleBuy"
+              },
+              "To": [
+                {
+                  "Email": str(user.email),
+                  "Name": str(user.username)
+                }
+              ],
+              "Subject": str(_('Your SimpleBuy order #') + order.order_id),
+              "TextPart": str(_('Important message')),
+              "HTMLPart": str(get_template('orders/mails/complete.html')),
+              "CustomID": "OrderEmail"
+            }
+          ]
+        }
+        result = mailjet.send.create(data=data)
 
-        message = EmailMultiAlternatives(subject, 
-                                         _('Important message'), 
-                                         settings.EMAIL_HOST_USER,
-                                         [user.email])
-        
-        message.attach_alternative(content, 'text/html')
-        message.send()
+        # print(result.status_code)
+        # print(result.json())

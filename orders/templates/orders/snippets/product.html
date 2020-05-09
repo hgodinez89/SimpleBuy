@@ -11,7 +11,7 @@
     </th>
     <th class="text-left">
         <a href="{% url 'products:product' product.slug %}"
-            class="text-sm font-normal text-blue-700 underline hover:text-blue-800">{{ product.title }}</a>
+            class="text-xs md:text-sm font-normal text-blue-700 underline hover:text-blue-800">{{ product.title }}</a>
 
         {% for cp in cart.products_related %}
             {% if cp.product.title == product.title %}
@@ -20,6 +20,6 @@
         {% endfor %}
     </th>
     <th class="text-right">
-        <span class="text-red-700 text-sm font-semibold">{{ product.price | price_format }}</span>
+        <span class="text-red-700 text-xs md:text-sm font-semibold">{{ product.price | price_format }}</span>
     </th>
 </tr>

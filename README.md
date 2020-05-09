@@ -5,7 +5,7 @@
   <p align="center">
     This is an E-commerce website.
     <br>
-    <a href="https://github.com/hgodinez89/SimpleBuy/issues/new">Report bug</a>
+    <a href="https://github.com/hgodinez89/SimpleBuy/issues/new" target="_blank">Report bug</a>
   </p>
 </p>
 
@@ -26,14 +26,14 @@ Important if you want to try this website in your computer, you need to create y
 ```
 class Secrets:
     SECRET_KEY_DJANGO = 'your own Django's apiKey, it's generated when your start your project'
-    EMAIL_USER = 'your email address that allows to send notifications of customers orders, etc'
-    EMAIL_PASSWORD = 'your email password to send notifications of customers orders, etc'
     STRIPE_PUB_KEY = 'your own public Stripe's apiKey'
     STRIPE_PRIV_KEY = 'your own private Stripe's apiKey'
     HOST_DB = 'your own host database'
     USER_DB = 'you database user'
     PASSWORD_DB = 'user's database password'
     NAME_DB = 'database name'
+    MAILJET_PUB_KEY = 'your own public MailJet's apiKey to send notifications from GCP for customers orders, etc'
+    MAILJET_PRIV_KEY = 'your own private MailJet's apiKey to send notifications from GCP for customers orders, etc'
 ```
 </br></br>
 Thanks for your visiting! 👍
@@ -77,7 +77,7 @@ Thanks for your visiting! 👍
 
 ## Try a demo
 
-If you want to try a live and free demo of SimpleBuy, you can do it, just need to go to <a href="https://simplebuy-276303.uc.r.appspot.com">SimpleBuy</a> and you will see a SimpleBuy test version prepared for a testing live. This site is being hosting by Google Cloud Platform.
+If you want to try a live and free demo of SimpleBuy, you can do it, just need to go to <a href="https://simplebuy-276303.uc.r.appspot.com" target="_blank">SimpleBuy</a> and you will see a SimpleBuy test version prepared for a testing live. This site is being hosting by Google Cloud Platform.
 
 On this SimpleBuy version you can test the following:
 
@@ -98,13 +98,13 @@ If you want to test the shopping process, you can use the following test cards:
 | 5555 5555 5555 4444  | Mastercard         | Any 3 digits  | Any future date  | 00000  |
 | 3782 822463 10005    | American Express   | Any 3 digits  | Any future date  | 00000  |
   
-In case that you need more test cards you can go to <a href="https://stripe.com/docs/testing">Stripe Docs WebSite</a> and get more.
+In case that you need more test cards you can go to <a href="https://stripe.com/docs/testing" target="_blank">Stripe Docs WebSite</a> and get more.
 
 ## Have questions?
 
 If you have questions or just need any help, feel free to write to me 
-<a href="mailto:hgodinez89@hotmail.com">hgodinez89@hotmail.com</a>
+<a href="mailto:hgodinez89@hotmail.com" target="_blank">hgodinez89@hotmail.com</a>
 
 ## Thanks
 
-💜 Thanks to <a href="https://stripe.com/">Stripe</a> and <a href="https://cloud.google.com/">GCP</a>.
+💜 Thanks to <a href="https://stripe.com/" target="_blank">Stripe</a> and <a href="https://cloud.google.com/" target="_blank">GCP</a>.

@@ -89,3 +89,15 @@ body {
   text-decoration: none;
   cursor: pointer;
 }
+
+.box-resume {
+  width: 310px;
+}
+
+.box-address {
+  height: 170px;
+}
+
+.add-cart {
+  width: 135px;
+}

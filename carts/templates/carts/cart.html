@@ -10,13 +10,12 @@
 
 {% block content %}
 {% if cart.products.exists %}
-
-<div class="container mx-auto mt-12 mb-4 px-24 flex">
-    <div class="w-3/5 flex flex-col">
-        <h1 class="text-gray-800 text-2xl font-bold ml-5 mb-4">{% trans "Your products in cart" %}</h1>
+<div class="container mx-auto mt-12 mb-4 px-6 md:px-12 lg:px-24 lg:flex">
+    <div class="w-full lg:w-3/5 flex flex-col">
+        <h1 class="text-gray-800 text-2xl font-bold lg:ml-5 mb-4">{% trans "Your products in cart" %}</h1>
         <table>
             <thead>
-                <tr class="text-gray-700 text-sm">
+                <tr class="text-gray-700 text-xs md:text-sm">
                     <th scope="col"></th>
                     <th scope="col"></th>
                     <th scope="col"></th>
@@ -36,13 +35,15 @@
                         {% endif %}
                     </th>
                     <th class="text-left">
-                        <a href="{% url 'products:product' product.slug %}"
-                            class="text-sm font-normal text-blue-700 underline hover:text-blue-800">{{ product.title }}</a>
-                        {% include 'carts/snippets/remove.html' %}
-                        </t>
-                    <th class="text-center text-sm font-semibold">{{ cp.quantity }}</th>
+                        <div class="ml-4 md:ml-0">
+                            <a href="{% url 'products:product' product.slug %}"
+                                class="text-xs md:text-sm text-blue-700 underline hover:text-blue-800">{{ product.title }}</a>
+                            {% include 'carts/snippets/remove.html' %}
+                        </div>
+                    </th>
+                    <th class="text-center text-xs md:text-sm font-semibold">{{ cp.quantity }}</th>
                     <th class="text-right">
-                        <span class="text-red-700 text-sm font-semibold">{{ product.price | price_format }}</span>
+                        <span class="text-red-700 text-xs md:text-sm font-semibold">{{ product.price | price_format }}</span>
                     </th>
                 </tr>
                 {% endwith %}
@@ -51,20 +52,24 @@
         </table>
     </div>
 
-    <div class="w-1/4 h-32 border b-gray-400 rounded flex justify-center flex-col p-6 bg-white mt-16 mb-2 ml-16">
-        <span class="text-gray-800 font-semibold text-sm">{% trans "Subtotal" %} ({{ request.session.products_quantity|subtotal_quantity_format }}): <span
-                class="text-red-700 text-sm font-semibold">{{ cart.subtotal | price_format }}</span></span>
+    <hr class="mt-2 mb-5">
+
+    <div class="w-full h-32 lg:w-64 lg:border lg:b-gray-400 lg:rounded lg:flex lg:justify-center flex-col lg:p-6 bg-white lg:mt-12 lg:mt-16 mb-2 ml-0 lg:ml-16">
+        <span class="flex justify-end lg:flex lg:justify-start text-gray-800 font-semibold text-xs md:text-sm">{% trans "Subtotal" %} ({{ request.session.products_quantity|subtotal_quantity_format }}): <span
+                class="text-red-700 text-xs md:text-sm font-semibold">&nbsp;{{ cart.subtotal | price_format }}</span></span>
+        <div class="flex justify-end lg:flex lg:justify-start ">
         <a href="{% url 'orders:order' %}"
-            class="mt-4 text-center bg-blue-600 hover:bg-blue-500 text-white text-sm py-2 px-4 font-semibold rounded focus:outline-none focus:shadow-outline">{% trans "Proceed to pay" %}</a>
+            class="w-48 md:w-56 lg:w-full mt-4 text-center bg-blue-600 hover:bg-blue-500 text-white text-xs md:text-sm py-2 px-4 font-semibold rounded focus:outline-none focus:shadow-outline">{% trans "Proceed to pay" %}</a>
+        </div>
     </div>
 </div>
 {% else %}
 <div class="container mx-auto flex justify-center mb-10 mt-20">
-    <img src="{% static 'images/empty_product.png' %}" alt="Empty product" width="68" height="68" class="inline-block">
+    <img src="{% static 'images/empty_product.png' %}" alt="Empty product" class="inline-block w-10 h-10 md:w-16 md:h-16 mt-2 md:mt-0">
     <div>
-        <h1 class="text-gray-800 text-2xl font-bold ml-5 mt-1">{% trans "Your cart is empty" %}</h1>
-        <a href="{% url 'index' %}"
-            class="text-sm font-normal text-blue-700 underline hover:text-blue-800 ml-5 mt-2">{% trans "Continue shopping" %}</a>
+        <h1 class="text-gray-800 text-sm md:text-2xl ml-5 mt-1">{% trans "Your cart is empty" %}</h1>
+        <a href="{% url 'index' %}#products"
+            class="text-sm text-blue-700 underline hover:text-blue-800 ml-5 mt-2">{% trans "Continue shopping" %}</a>
     </div>
 </div>
 {% endif %}

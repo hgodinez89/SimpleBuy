@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 1.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-05-08 14:06-0600\n"
+"POT-Creation-Date: 2020-05-09 11:50-0600\n"
 "PO-Revision-Date: 2020-03-22 HO:MI+ZONE\n"
 "Last-Translator: Hanzel Godinez <hgodinez89@hotmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -23,19 +23,21 @@ msgstr ""
 msgid "Payment methods"
 msgstr "Métodos de pago"
 
-#: billing_profiles/templates/billing_profiles/billing_profiles.html:19
+#: billing_profiles/templates/billing_profiles/billing_profiles.html:20
 #: billing_profiles/templates/billing_profiles/create.html:13
-#: orders/templates/orders/payment.html:21
+#: orders/templates/orders/payment.html:22
 msgid "New payment method"
 msgstr "Nuevo método de pago"
 
-#: billing_profiles/templates/billing_profiles/billing_profiles.html:21
-#: orders/templates/orders/payment.html:23
+#: billing_profiles/templates/billing_profiles/billing_profiles.html:23
+#: orders/templates/orders/payment.html:25
 msgid "We accept all major credit and debit cards."
 msgstr "Aceptamos la mayoría de tarjetas de crédito y débito"
 
-#: billing_profiles/templates/billing_profiles/billing_profiles.html:34
-#: orders/templates/orders/payment.html:36
+#: billing_profiles/templates/billing_profiles/billing_profiles.html:24
+#: billing_profiles/templates/billing_profiles/billing_profiles.html:37
+#: orders/templates/orders/payment.html:26
+#: orders/templates/orders/payment.html:39
 msgid "Add a card"
 msgstr "Agregar una tarjeta"
 
@@ -60,7 +62,7 @@ msgstr "Tarjeta principal"
 #: billing_profiles/templates/billing_profiles/snippets/billing_profile.html:63
 #: shipping_address/templates/shipping_address/snippets/shipping_address.html:29
 msgid "Set as default"
-msgstr "Definir como principal"
+msgstr "Principal"
 
 #: billing_profiles/templates/billing_profiles/snippets/billing_profile.html:71
 #: carts/templates/carts/snippets/remove.html:6
@@ -98,44 +100,44 @@ msgstr ""
 msgid "Card successfully removed."
 msgstr "Tarjeta removida exitosamente"
 
-#: carts/templates/carts/add.html:24
+#: carts/templates/carts/add.html:26
 msgid " to shopping cart"
 msgstr " al carrito de compras"
 
-#: carts/templates/carts/add.html:43
+#: carts/templates/carts/add.html:46
 msgid "View cart"
 msgstr "Ver carrito"
 
-#: carts/templates/carts/add.html:44 carts/templates/carts/cart.html:67
+#: carts/templates/carts/add.html:47 carts/templates/carts/cart.html:72
 msgid "Continue shopping"
 msgstr "Seguir comprando"
 
-#: carts/templates/carts/cart.html:16
+#: carts/templates/carts/cart.html:15
 msgid "Your products in cart"
 msgstr "Tus productos en el carrito"
 
-#: carts/templates/carts/cart.html:23
+#: carts/templates/carts/cart.html:22
 #: orders/templates/orders/snippets/order.html:36
 msgid "Quantity"
 msgstr "Cantidad"
 
-#: carts/templates/carts/cart.html:24 orders/templates/orders/confirm.html:74
+#: carts/templates/carts/cart.html:23 orders/templates/orders/confirm.html:74
 #: orders/templates/orders/order.html:20
 msgid "Price"
 msgstr "Precio"
 
-#: carts/templates/carts/cart.html:55
+#: carts/templates/carts/cart.html:58
 #: orders/templates/orders/snippets/order.html:44
 msgid "Subtotal"
 msgstr "Subtotal"
 
-#: carts/templates/carts/cart.html:58
+#: carts/templates/carts/cart.html:62
 msgid "Proceed to pay"
 msgstr "Proceder al pago"
 
-#: carts/templates/carts/cart.html:65
+#: carts/templates/carts/cart.html:70
 msgid "Your cart is empty"
-msgstr "No tienes productos en tu carrito de compras"
+msgstr "No tienes productos en tu carrito"
 
 #: carts/templates/carts/snippets/add.html:23
 msgid "Add to cart"
@@ -257,7 +259,7 @@ msgid "You can visit our website to see your order."
 msgstr "Puedes visitar nuestra página web para ver tu orden."
 
 #: orders/templates/orders/mails/complete.html:14
-#: orders/templates/orders/orders.html:8 templates/footbar.html:72
+#: orders/templates/orders/orders.html:11 templates/footbar.html:72
 #: templates/navbar.html:79 templates/navbar.html:231
 msgid "My orders"
 msgstr "Mis pedidos"
@@ -266,11 +268,19 @@ msgstr "Mis pedidos"
 msgid "Check your order"
 msgstr "Verifica tu pedido"
 
+#: orders/templates/orders/orders.html:22
+msgid "You don't have orders yet!"
+msgstr "No tienes ninguna orden aún!"
+
+#: orders/templates/orders/orders.html:24
+msgid "Go shopping"
+msgstr "Vamos de compras"
+
 #: orders/templates/orders/payment.html:14
 msgid "Choose another card"
 msgstr "Seleccionar otra tarjeta"
 
-#: orders/templates/orders/payment.html:39
+#: orders/templates/orders/payment.html:42
 msgid "Confirm"
 msgstr "Confirmar"
 
@@ -319,15 +329,15 @@ msgstr "Código promocional"
 msgid "Shipping:"
 msgstr "Envío:"
 
-#: orders/templates/orders/snippets/resume.html:39
+#: orders/templates/orders/snippets/resume.html:37
 msgid "Total (Taxes included):"
-msgstr "Total (Impuestos incluidos):"
+msgstr "Total (Imp. incluidos):"
 
-#: orders/templates/orders/snippets/resume.html:47
+#: orders/templates/orders/snippets/resume.html:46
 msgid "Place your order"
 msgstr "Confirmar tu pedido"
 
-#: orders/templates/orders/snippets/resume.html:51
+#: orders/templates/orders/snippets/resume.html:50
 msgid "Cancel your order"
 msgstr "Cancelar tu pedido"
 
@@ -685,7 +695,7 @@ msgstr "Ingresar"
 msgid "Sign In"
 msgstr "Registrarse"
 
-#: templates/footbar.html:95
+#: templates/footbar.html:93
 msgid ""
 "Privacy & Terms</br></br>We know that you care how information about you is "
 "used and shared, and we appreciate your trust that we will do so carefully "
@@ -703,75 +713,75 @@ msgstr ""
 "servicios de SimpleBuy, en línea, tiendas físicas y aplicaciones que hacen "
 "referencia a este aviso de privacidad"
 
-#: templates/footbar.html:96
+#: templates/footbar.html:94
 msgid "Privacy & Terms"
 msgstr "Privacidad & Términos"
 
-#: templates/footbar.html:97
+#: templates/footbar.html:95
 msgid "Privacy"
 msgstr "Privacidad"
 
-#: templates/header.html:17
+#: templates/header.html:12
 msgid "From anywhere SimpleBuy!"
 msgstr "Desde cualquier lugar SimpleBuy"
 
-#: templates/header.html:21
+#: templates/header.html:16
 msgid "We deliver to the door of your place."
 msgstr "Entregamos hasta la puerta de tu lugar."
 
-#: templates/header.html:25
+#: templates/header.html:20
 msgid "Shop Now"
 msgstr "Comprar"
 
-#: templates/header.html:40
+#: templates/header.html:35
 msgid "Popular Brands"
 msgstr "Marcas Populares"
 
-#: templates/header.html:49
+#: templates/header.html:44
 msgid "Computers, screens.."
 msgstr "Computadoras, pantallas.."
 
-#: templates/header.html:58
+#: templates/header.html:53
 msgid "Computers, drivers.."
 msgstr "Computadoras, discos duros.."
 
-#: templates/header.html:68
+#: templates/header.html:63
 msgid "Computers, iPhones.."
 msgstr "Computadoras, iPhones..."
 
-#: templates/header.html:76
+#: templates/header.html:71
 msgid "Popular Products"
 msgstr "Productos Populares"
 
-#: templates/header.html:90
+#: templates/header.html:85
 msgid "Acer curved monitor"
 msgstr "Acer monitor curvo"
 
-#: templates/header.html:93
+#: templates/header.html:88
 msgid "24\" | $228.00"
 msgstr "240GB | $65.00"
 
-#: templates/header.html:110
+#: templates/header.html:105
 msgid "MacBook Pro"
 msgstr "MacBook Pro"
 
-#: templates/header.html:113
+#: templates/header.html:108
 msgid "13\" | $1,799.00"
 msgstr "13\" | $2,370.00"
 
-#: templates/header.html:133
+#: templates/header.html:128
 msgid "Samsung SSD Drive"
 msgstr "Samsung SSD Drive"
 
-#: templates/header.html:136
+#: templates/header.html:131
 msgid "240GB | $65.00"
 msgstr "240GB | $65.00"
 
-#: templates/header.html:153
+#: templates/header.html:148
 msgid "iPhone 11 Pro"
 msgstr "iPhone 11 Pro"
 
-#: templates/header.html:156
+#: templates/header.html:151
 msgid "120GB | $1,299.99"
 msgstr "120GB | $1,999.99"
 

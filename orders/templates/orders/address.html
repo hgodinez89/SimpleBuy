@@ -8,22 +8,22 @@
 
 {% block content %}
     {% if shipping_address %}
-        <div class="container mx-auto px-8 mt-2">
+        <div class="container mx-auto px-5 md:px-8 mt-2">
             <h1 class="text-gray-800 text-2xl font-bold">{% trans "Shipping address" %}</h1>
         
             <div class="relative bg-white rounded border-2 mt-4">
-                <div class="" style="height: 170px;">
+                <div class="md:box-address mb-8">
                     <div class="flex justify-between mx-3 my-2">
                     
                         <div>
-                            <p class="inline-block text-sm font-bold text-gray-600">SimpleBuy:</p>
-                            <p class="inline-block text-sm font-semibold text-gray-800">{% trans "Default address" %}</p>
+                            <p class="inline-block text-xs md:text-sm font-bold text-gray-600">SimpleBuy:</p>
+                            <p class="inline-block text-xs md:text-sm font-semibold text-gray-800">{% trans "Default address" %}</p>
                         </div>
                     
                         {% if can_choose_address %}
                         <div>
                             <a href="{% url 'orders:choose_address' %}"
-                                class="inline-block text-sm font-normal text-blue-700 underline hover:text-blue-800">{% trans "Another address" %}</a>
+                                class="inline-block text-xs md:text-sm text-blue-700 underline hover:text-blue-800">{% trans "Another address" %}</a>
                         </div>
                         {% endif %}
                     
@@ -33,23 +33,23 @@
                 </div>
             
                 <div class="ml-3 mt-2">
-                    <p class="text-sm font-semibold text-gray-800">{{ shipping_address.address }}</p>
-                    <p class="text-sm font-normal text-gray-800">{{ shipping_address.line1 }}</p>
-                    <p class="text-sm font-normal text-gray-800">{{ shipping_address.line2 }}</p>
-                    <p class="text-sm font-normal text-gray-900">{{ shipping_address.reference }}</p>
-                    <p class="text-sm font-normal text-gray-900">{{ shipping_address.postal_code }}</p>
+                    <p class="text-xs md:text-sm font-semibold text-gray-800">{{ shipping_address.address }}</p>
+                    <p class="text-xs md:text-sm font-normal text-gray-800">{{ shipping_address.line1 }}</p>
+                    <p class="text-xs md:text-sm font-normal text-gray-800">{{ shipping_address.line2 }}</p>
+                    <p class="text-xs md:text-sm font-normal text-gray-900">{{ shipping_address.reference }}</p>
+                    <p class="text-xs md:text-sm font-normal text-gray-900">{{ shipping_address.postal_code }}</p>
                 </div>
             </div>
         </div>
         
         <div class="mt-6">
             <a href="{% url 'orders:payment' %}"
-                class="bg-blue-600 hover:bg-blue-500 text-white text-sm py-2 px-4 font-semibold rounded focus:outline-none focus:shadow-outline">{% trans "Deliver to this address" %}</a>
+                class="bg-blue-600 hover:bg-blue-500 text-white text-xs md:text-sm py-2 px-4 font-semibold rounded focus:outline-none focus:shadow-outline">{% trans "Deliver to this address" %}</a>
         </div>
     {% else %}
-        <div class="container mx-auto px-8 mt-2">
+        <div class="container mx-auto px-6 md:px-8 mt-2">
             <h1 class="text-gray-800 text-2xl font-bold">{% trans "Register your shipping address" %}</h1>
-            <div class="mt-4 w-48 bg-blue-600 hover:bg-blue-500 text-white text-sm py-2 px-4 font-semibold rounded focus:outline-none focus:shadow-outline">
+            <div class="text-center mt-5 md:mt-4 w-48 bg-blue-600 hover:bg-blue-500 text-white text-xs md:text-sm py-2 px-4 font-semibold rounded focus:outline-none focus:shadow-outline">
                 {% url 'orders:address' as next_url %}
                 <a href="{% url 'shipping_address:create' %}?next={{ next_url }}">{% trans "New shipping address" %}</a>
             </div>

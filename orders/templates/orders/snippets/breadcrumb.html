@@ -1,45 +1,55 @@
-<div class="max-w-xl pl-16 ml-3 my-4 pb-4 mt-8">	
-	<div class="flex pb-3">
-		<div class="flex-1">
-    </div>
-    
-    {% for item in breadcrumb %}
+<div class="container mx-auto">
+  <div class="max-w-xl pr-2 md:-ml-2 my-4 pb-4 mt-8">
+    <div class="flex pb-3">
+      <div class="flex-1">
+      </div>
 
-        {% if not forloop.first  %}
-            <div class="w-1/6 align-center items-center align-middle content-center flex">
-              <div class="w-full {% if item.state == 'progress' %} bg-gray-600 {% elif item.state == 'completed' %} bg-blue-600 {% else %} bg-gray-300 {% endif %} rounded items-center align-middle align-center flex-1">
-                 <div class="{% if item.state == 'progress' %} bg-gray-600 {% elif item.state == 'completed' %} bg-blue-600 {% else %} bg-gray-300 {% endif %} text-xs leading-none py-1 text-center text-grey-darkest rounded " style="width: 100%"></div>
-              </div>
-            </div>
-        {% endif %}
+      {% for item in breadcrumb %}
 
-        <div class="flex-1">
-          <div class="w-8 h-8 {% if item.state == 'progress' %} bg-gray-600 {% elif item.state == 'completed' %} bg-blue-600 {% else %} bg-gray-300 {% endif %} mx-auto rounded-full text-lg text-white flex items-center">
-            {% if item.state == 'completed' %}
-              <span class="flex justify-center items-center w-full"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" style="fill: #fff;"><path d="M20.285 2l-11.285 11.567-5.286-5.011-3.714 3.716 9 8.728 15-15.285z"/></svg></span>
-            {% else %}
-              <span class="text-sm font-semibold text-center w-full {% if item.state == 'pending' %} text-gray-600 opacity-75{% endif %}">{{ item.step }}</span>
-            {% endif %}
-          </div>
+      {% if not forloop.first  %}
+      <div class="w-1/6 align-center items-center align-middle content-center flex">
+        <div
+          class="w-full {% if item.state == 'progress' %} bg-gray-600 {% elif item.state == 'completed' %} bg-blue-600 {% else %} bg-gray-300 {% endif %} rounded items-center align-middle align-center flex-1">
+          <div
+            class="{% if item.state == 'progress' %} bg-gray-600 {% elif item.state == 'completed' %} bg-blue-600 {% else %} bg-gray-300 {% endif %} text-xs leading-none py-1 text-center text-grey-darkest rounded "
+            style="width: 100%"></div>
         </div>
-        
-    {% endfor %}
-	
-		<div class="flex-1">
-		</div>		
-	</div>
-	
-	<div class="flex text-xs content-center text-center text-gray-800">
+      </div>
+      {% endif %}
 
-    {% for item in breadcrumb %}
-        <div class="w-1/4">
-          {% if item.active %}
-            <a href="{{ item.url }}" class="hover:underline hover:text-blue-700 {% if item.state == 'progress' %} underline {% endif %}">{{ item.title }}</a>
+      <div class="flex-1">
+        <div
+          class="w-8 h-8 {% if item.state == 'progress' %} bg-gray-600 {% elif item.state == 'completed' %} bg-blue-600 {% else %} bg-gray-300 {% endif %} mx-auto rounded-full text-md md:text-lg text-white flex items-center">
+          {% if item.state == 'completed' %}
+          <span class="flex justify-center items-center w-full"><svg xmlns="http://www.w3.org/2000/svg" width="16"
+              height="16" viewBox="0 0 24 24" style="fill: #fff;">
+              <path d="M20.285 2l-11.285 11.567-5.286-5.011-3.714 3.716 9 8.728 15-15.285z" /></svg></span>
           {% else %}
-            <span>{{ item.title }}</span>
+          <span
+            class="text-xs md:text-sm font-semibold text-center w-full {% if item.state == 'pending' %} text-gray-600 opacity-75{% endif %}">{{ item.step }}</span>
           {% endif %}
-        </div>        
-    {% endfor %}
+        </div>
+      </div>
 
-	</div>
+      {% endfor %}
+
+      <div class="flex-1">
+      </div>
+    </div>
+
+    <div class="flex text-xs content-center text-center text-gray-800">
+
+      {% for item in breadcrumb %}
+      <div class="w-1/4">
+        {% if item.active %}
+        <a href="{{ item.url }}"
+          class="hover:underline hover:text-blue-700 {% if item.state == 'progress' %} underline {% endif %}">{{ item.title }}</a>
+        {% else %}
+        <span>{{ item.title }}</span>
+        {% endif %}
+      </div>
+      {% endfor %}
+
+    </div>
+  </div>
 </div>

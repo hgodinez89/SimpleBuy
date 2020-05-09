@@ -10,6 +10,7 @@ DjangoSEO==1.0
 idna==2.8
 isort==4.3.21
 lazy-object-proxy==1.4.3
+mailjet-rest==1.3.3
 mccabe==0.6.1
 mysqlclient==1.4.6
 Pillow==6.2.1

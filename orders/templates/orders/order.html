@@ -7,13 +7,13 @@
 {% endblock %}
 
 {% block content %}
-<div class="container mx-auto px-8 mt-2">
+<div class="container mx-auto px-6 md:px-8 lg:px-8 mt-2">
     <h1 class="text-gray-800 text-2xl font-bold">{% trans "Check your order" %}</h1>
-    <div class="mt-12 flex">
-        <div class="w-3/5 flex flex-col mr-10">
+    <div class="mt-12 md:flex">
+        <div class="w-full md:w-3/5 flex flex-col mr-10">
             <table>
                 <thead>
-                    <tr class="text-gray-700 text-sm">
+                    <tr class="text-gray-700 text-xs md:text-sm">
                         <th scope="col"></th>
                         <th scope="col"></th>
                         <th scope="col"></th>
@@ -22,13 +22,18 @@
                 </thead>
                 <tbody>
                     {% for product in cart.products.all %}
-                    {% include 'orders/snippets/product.html' %}
+                        {% include 'orders/snippets/product.html' %}
                     {% endfor %}
                 </tbody>
             </table>
         </div>
-        {% url 'orders:address' as next_url %}
-        {% include 'orders/snippets/resume.html' with next_url=next_url  %}
+
+        <hr class="mt-2 mb-5">
+
+        <div class="flex justify-end">
+            {% url 'orders:address' as next_url %}
+            {% include 'orders/snippets/resume.html' with next_url=next_url responsive="md" %}
+        </div>
     </div>
 </div>
 {% endblock %}

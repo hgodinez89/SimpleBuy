@@ -180,17 +180,13 @@ LOCALE_PATHS = [
     os.path.join(BASE_DIR, 'locale')
 ]
 
-
-# Keys of email
-EMAIL_HOST = 'smtp.googlemail.com'
-EMAIL_PORT = 587
-EMAIL_HOST_USER = Secrets.EMAIL_USER
-EMAIL_HOST_PASSWORD = Secrets.EMAIL_PASSWORD
-EMAIL_USE_TLS = True
-
 # Keys of Stripe
 STRIPE_PUBLIC_KEY = Secrets.STRIPE_PUB_KEY
 STRIPE_PRIVATE_KEY = Secrets.STRIPE_PRIV_KEY
+
+# Keys of MailJet
+MAILJET_PUB_KEY = Secrets.MAILJET_PUB_KEY
+MAILJET_PRIV_KEY = Secrets.MAILJET_PRIV_KEY
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.0/howto/static-files/

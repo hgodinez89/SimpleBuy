@@ -10,9 +10,8 @@ var elements = stripe.elements()
 // (Note that this demo uses a wider set of styles than the guide below.)
 var style = {
   base: {
-    color: '#32325d',
-    fontFamily: '"Helvetica Neue", Helvetica, sans-serif',
-    fontSmoothing: 'antialiased',
+    color: '#4a5568',
+    fontFamily: 'system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"',
     fontSize: '16px',
     '::placeholder': {
       color: '#aab7c4'

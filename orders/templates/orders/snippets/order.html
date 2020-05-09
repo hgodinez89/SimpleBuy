@@ -2,7 +2,7 @@
 
 {% load product_extras %}
 
-<div class="w-full mb-4 px-2">
+<div class="w-full mb-5 px-2">
     <div class="bg-gray-200 rounded-t border py-2 px-4">
         <div class="flex justify-between font-semibold text-xs text-gray-800">
             <p>{% trans "Order placed" %}</p>
@@ -15,11 +15,12 @@
             <p class="text-xs text-gray-800">{{ order.shipping_address }}</p>
         </div>
     </div>
-    <div class="flex justify-start bg-white border-l border-r py-4 px-2">
+    <div class="flex justify-start bg-white border-l border-r px-2">
+        <div class="w-full">
         {% for cp in order.cart.products_related %}
         {% with product=cp.product %}
 
-        <div class="inline-block text-xs text-gray-800 ml-4 mr-10">
+        <div class="inline-block text-xs text-gray-800 ml-4 mr-10 my-6">
             <table>
                 <tbody>
                     <tr>
@@ -51,10 +52,11 @@
         {% endwith %}
         {% endfor %}
     </div>
+    </div>
 
     <div class="bg-white rounded-b border py-2 px-4">
-        <div class="relative font-semibold text-xs text-gray-800">
-            <p class="inline-block">{% trans "Order #" %}</p>
+        <div class="relative text-xs text-gray-800">
+            <p class="inline-block font-semibold">{% trans "Order #" %}</p>
             <p class="inline-block">{{ order.order_id }}</p>
         </div>
     </div>

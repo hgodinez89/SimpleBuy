@@ -3,8 +3,8 @@
 {% load cart_extras %}
 {% load static %}
 
-<div class="w-1/4 border {% if promo_code %}h-64{% else %}h-48{% endif %} b-gray-400 rounded flex justify-center flex-col -mt-6 pl-6 pr-6">
-    <span class="text-gray-800 font-semibold text-sm">{% trans "Order summary" %}</span>
+<div class="{{ responsive }}:box-resume {{ responsive }}:border {% if promo_code %}h-64{% else %}h-48{% endif %} {{ responsive }}:b-gray-400 {{ responsive }}:rounded {{ responsive }}:flex {{ responsive }}:justify-center flex-col {{ responsive }}:-mt-6 {{ responsive }}:px-6">
+    <span class="hidden {{ responsive }}:block text-gray-800 font-semibold text-sm">{% trans "Order summary" %}</span>
     <div>
         <table class="w-64 mt-1">
             <thead>
@@ -15,39 +15,38 @@
             </thead>
             <tbody>
                 <tr>
-                    <td class="text-gray-800 font-normal text-xs">{% trans "Products" %} ({{ request.session.products_quantity|subtotal_quantity_format }}): </td>
+                    <td class="text-gray-800 font-normal text-xs text-right {{ responsive }}:text-left">{% trans "Products" %} ({{ request.session.products_quantity|subtotal_quantity_format }}): </td>
                     <td class="text-gray-800 font-normal text-xs text-right">{{ cart.total | price_format }}</td>
                 </tr>
                 {% if promo_code %}
                     <tr>
-                        <td class="text-gray-800 font-normal text-xs">{% trans "Promo code:" %}</td>
+                        <td class="text-gray-800 font-normal text-xs text-right {{ responsive }}:text-left">{% trans "Promo code:" %}</td>
                         <td class="text-gray-800 font-normal text-xs text-right">
                             <div id="order-promo_code">-{{ order.discount | price_format }}</div>
                         </td>
                     </tr>
                 {% endif %}
                 <tr>
-                    <td class="text-gray-800 font-normal text-xs">{% trans "Shipping:" %}</td>
+                    <td class="text-gray-800 font-normal text-xs text-right {{ responsive }}:text-left">{% trans "Shipping:" %}</td>
                     <td class="text-gray-800 font-normal text-xs text-right">{{ order.shipping_total | price_format }}</td>
+                </tr>
+                <tr>
+                    <td colspan="2"><hr class="my-2"></td>
+                </tr>
+                <tr>
+                    <td class="text-red-700 font-bold text-xs text-right {{ responsive }}:text-left">{% trans "Total (Taxes included):" %}</td>
+                    <td class="text-red-700 font-bold text-xs text-right">{{ order.total | price_format }}</td>
                 </tr>
             </tbody>
         </table>
     </div>
-    <div>
-        <hr class="my-1">
-        <div class="text-red-700 font-bold text-xs w-64 flex justify-between">
-            <span>{% trans "Total (Taxes included):" %}</span>
-            <div id="order-total" class="inline-block">
-                {{ order.total | price_format }}
-            </div>
-        </div>
-    </div>
-    <div class="flex w-64 mt-4">
-        <a href="{{ next_url }}" id="place_order" class="w-full text-center bg-blue-600 hover:bg-blue-500 text-white text-sm py-2 px-4 font-semibold rounded focus:outline-none focus:shadow-outline"
+
+    <div class="flex w-64 mt-5 {{ responsive }}:mt-4">
+        <a href="{{ next_url }}" id="place_order" class="w-full text-center bg-blue-600 hover:bg-blue-500 text-white text-xs {{ responsive }}:text-sm py-2 px-4 font-semibold rounded focus:outline-none focus:shadow-outline"
             onclick='return loading("place_order")'>{% trans "Place your order" %}</a>
     </div>
     {% if cancel %}
-        <div class="mt-1">
+        <div class="flex justify-center {{ responsive }}:flex {{ responsive }}:justify-start mt-1">
             <a href="{% url 'orders:cancel' %}" class="text-xs font-normal text-gray-700 hover:text-gray-800">{% trans "Cancel your order" %}</a>
         </div>
     {% endif %}
