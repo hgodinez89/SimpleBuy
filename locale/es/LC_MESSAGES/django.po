@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 1.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-05-09 11:50-0600\n"
+"POT-Creation-Date: 2020-05-11 18:19-0600\n"
 "PO-Revision-Date: 2020-03-22 HO:MI+ZONE\n"
 "Last-Translator: Hanzel Godinez <hgodinez89@hotmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -51,7 +51,7 @@ msgstr "Terminación:"
 
 #: billing_profiles/templates/billing_profiles/snippets/billing_profile.html:47
 #: billing_profiles/templates/billing_profiles/snippets/billing_profile.html:61
-#: shipping_address/templates/shipping_address/snippets/shipping_address.html:42
+#: shipping_address/templates/shipping_address/snippets/shipping_address.html:44
 msgid "Choose"
 msgstr "Seleccionar"
 
@@ -60,13 +60,13 @@ msgid "Default card"
 msgstr "Tarjeta principal"
 
 #: billing_profiles/templates/billing_profiles/snippets/billing_profile.html:63
-#: shipping_address/templates/shipping_address/snippets/shipping_address.html:29
+#: shipping_address/templates/shipping_address/snippets/shipping_address.html:31
 msgid "Set as default"
-msgstr "Principal"
+msgstr "Seleccionar"
 
 #: billing_profiles/templates/billing_profiles/snippets/billing_profile.html:71
 #: carts/templates/carts/snippets/remove.html:6
-#: shipping_address/templates/shipping_address/snippets/shipping_address.html:26
+#: shipping_address/templates/shipping_address/snippets/shipping_address.html:28
 msgid "Delete"
 msgstr "Eliminar"
 
@@ -93,7 +93,7 @@ msgstr "La tarjeta por defecto no puede removerse."
 #: billing_profiles/views.py:87
 msgid "The card is associated with an order, therefore it cannot be removed."
 msgstr ""
-"La dirección se encuentra asociada a una orden, por ello no puede ser "
+"La tarjeta se encuentra asociada a una orden, por ello no puede ser "
 "eliminada."
 
 #: billing_profiles/views.py:93
@@ -117,7 +117,7 @@ msgid "Your products in cart"
 msgstr "Tus productos en el carrito"
 
 #: carts/templates/carts/cart.html:22
-#: orders/templates/orders/snippets/order.html:36
+#: orders/templates/orders/snippets/order.html:37
 msgid "Quantity"
 msgstr "Cantidad"
 
@@ -127,7 +127,7 @@ msgid "Price"
 msgstr "Precio"
 
 #: carts/templates/carts/cart.html:58
-#: orders/templates/orders/snippets/order.html:44
+#: orders/templates/orders/snippets/order.html:45
 msgid "Subtotal"
 msgstr "Subtotal"
 
@@ -167,11 +167,11 @@ msgstr "items"
 msgid "item"
 msgstr "item"
 
-#: orders/mails.py:25
+#: orders/mails.py:31
 msgid "Your SimpleBuy order #"
 msgstr "Tu pedido SimpleBuy #"
 
-#: orders/mails.py:33
+#: orders/mails.py:32
 msgid "Important message"
 msgstr "Mensaje importante"
 
@@ -305,11 +305,11 @@ msgstr "Total"
 msgid "Shipped to"
 msgstr "Envíado a"
 
-#: orders/templates/orders/snippets/order.html:40
+#: orders/templates/orders/snippets/order.html:41
 msgid "Unit price"
 msgstr "Precio unitario"
 
-#: orders/templates/orders/snippets/order.html:57
+#: orders/templates/orders/snippets/order.html:59
 msgid "Order #"
 msgstr "Orden #"
 
@@ -405,6 +405,18 @@ msgstr "Código Postal"
 msgid "Other"
 msgstr "Referencias"
 
+#: shipping_address/forms.py:34
+msgid "Street address, P.O. box, company name, etc"
+msgstr "Calle, P.O box, nombre de compañia, etc"
+
+#: shipping_address/forms.py:38
+msgid "Apartment, suite, unit, building, floor, etc"
+msgstr "Apartamento, suite, edificio, piso, etc"
+
+#: shipping_address/forms.py:54
+msgid "Details such as building description, a nearby landmark, etc"
+msgstr "Detalles como descripción del edificio, puntos de referencia, etc"
+
 #: shipping_address/templates/shipping_address/create.html:8
 msgid "New address"
 msgstr "Nueva dirección"
@@ -430,7 +442,7 @@ msgstr "Sí, Estoy de acuerdo"
 msgid "My addresses"
 msgstr "Mis direcciones"
 
-#: shipping_address/templates/shipping_address/snippets/shipping_address.html:24
+#: shipping_address/templates/shipping_address/snippets/shipping_address.html:26
 msgid "Edit"
 msgstr "Editar"
 

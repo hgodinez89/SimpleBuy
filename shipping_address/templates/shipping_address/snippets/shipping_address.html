@@ -1,5 +1,7 @@
 {% load i18n %}
 
+{% load static %}
+
 <div class="w-full sm:w-1/2 lg:w-1/3 mb-4 px-2">
     <div class="relative bg-white rounded border-2">
         <div class="" style="height: {% if choose %}220px;{% else %}234px;{% endif %}">
@@ -13,28 +15,30 @@
             {% endif %}
 
             <div class="ml-3 mt-2">
-                <p class="text-sm font-semibold text-gray-800">{{ shipping_address.address|slice:"0:40" }}</p>
-                <p class="text-sm font-normal text-gray-900">{{ shipping_address.reference|slice:"0:40" }}</p>
+                <p class="text-sm font-semibold text-gray-800">{{ shipping_address.address }}</p>
+                <p class="text-sm font-normal text-gray-800">{{ shipping_address.line1_address }}</p>
+                <p class="text-sm font-normal text-gray-800">{{ shipping_address.line2_address }}</p>
+                <p class="text-sm font-normal text-gray-900">{{ shipping_address.reference }}</p>
                 <p class="text-sm font-normal text-gray-900">{{ shipping_address.postal_code }}</p>
             </div>
 
             {% if edit %}
-                <div class="ml-2 {% if shipping_address.default %}mt-10{% else %}mt-20{% endif %}">
-                    <a href="{% url 'shipping_address:update' shipping_address.pk %}"
-                        class="inline-block mt-10 bg-transparent hover:bg-blue-500 text-gray-700 text-sm font-normal hover:text-white py-1 px-2 border border-gray-500 hover:border-transparent rounded">{% trans "Edit" %}</a>
-                    <a href="{% url 'shipping_address:delete' shipping_address.pk %}"
-                        class="inline-block ml-1 bg-transparent hover:bg-blue-500 text-gray-700 text-sm font-normal hover:text-white py-1 px-1 border border-gray-500 hover:border-transparent rounded">{% trans "Delete" %}</a>
+                <div class="ml-2 {% if shipping_address.default %}{% if shipping_address.line2_address %}mt-1{% else %}mt-5{% endif %}{% else %}{% if shipping_address.line2_address %}mt-10{% else %}mt-16{% endif %}{% endif %}">
+                    <a id="edit_address" href="{% url 'shipping_address:update' shipping_address.pk %}"
+                        class="inline-block mt-10 bg-transparent hover:bg-blue-500 text-gray-700 text-sm font-normal hover:text-white py-1 px-2 border border-gray-500 hover:border-transparent rounded" onclick='return loading("edit_address", false)'>{% trans "Edit" %}</a>
+                    <a id="delete_address" href="{% url 'shipping_address:delete' shipping_address.pk %}"
+                        class="inline-block ml-1 bg-transparent hover:bg-blue-500 text-gray-700 text-sm font-normal hover:text-white py-1 px-1 border border-gray-500 hover:border-transparent rounded" onclick='return loading("delete_address", false)'>{% trans "Delete" %}</a>
                     {% if not shipping_address.default %}
-                    <a href="{% url 'shipping_address:default' shipping_address.pk %}"
-                        class="inline-block ml-1 bg-transparent hover:bg-blue-500 text-gray-700 text-sm font-normal hover:text-white py-1 px-1 border border-gray-500 hover:border-transparent rounded">{% trans "Set as default" %}</a>
+                    <a id="default_address" href="{% url 'shipping_address:default' shipping_address.pk %}"
+                        class="inline-block ml-1 bg-transparent hover:bg-blue-500 text-gray-700 text-sm font-normal hover:text-white py-1 px-1 border border-gray-500 hover:border-transparent rounded" onclick='return loading("default_address", false)'>{% trans "Set as default" %}</a>
                     {% endif %}
                 </div>
             {% endif %}
 
             {% if choose %}
-                <div class="{% if shipping_address.default %}mt-8{% else %}mt-20{% endif %}">
-                    <a href="{% url 'orders:check_address' shipping_address.pk %}"
-                        class="inline-block w-full {% if shipping_address.default %}mt-12{% else %}mt-10{% endif %} {% if shipping_address.pk == address_used %}bg-gray-200 text-gray-500{% else %}bg-gray-300 text-gray-800 opacity-75{% endif %} hover:bg-blue-600 hover:text-white hover:opacity-100 text-sm font-semibold py-2 px-2 rounded-b">
+                <div class="{% if shipping_address.default %}{% if shipping_address.line2_address %}-mt-1{% else %}mt-5{% endif %}{% else %}{% if shipping_address.line2_address %}mt-12{% else %}mt-16{% endif %}{% endif %}">
+                    <a id="choose_address" href="{% url 'orders:check_address' shipping_address.pk %}"
+                        class="inline-block w-full {% if shipping_address.default %}mt-12{% else %}mt-10{% endif %} {% if shipping_address.pk == address_used %}bg-gray-200 text-gray-500{% else %}bg-gray-300 text-gray-800 opacity-75{% endif %} hover:bg-blue-600 hover:text-white hover:opacity-100 text-sm font-semibold py-2 px-2 rounded-b"  onclick='return loading("choose_address", false)'>
                         <span class="flex flex-row justify-center">
                         {% if shipping_address.pk == address_used %}
                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" class="mt-1 mr-1" style="fill: #a0aec0;"><path d="M20.285 2l-11.285 11.567-5.286-5.011-3.714 3.716 9 8.728 15-15.285z"/></svg>
@@ -47,3 +51,7 @@
         </div>
     </div>
 </div>
+
+{% block javascript %}
+    <script type='text/javascript' src="{% static 'js/main.js' %}"></script>
+{% endblock javascript %}

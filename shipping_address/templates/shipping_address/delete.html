@@ -2,14 +2,20 @@
 
 {% load i18n %}
 
+{% load static %}
+
 {% block content %}
     <div class="container px-20 py-6">
         <form method="POST">
             {% csrf_token %}
             <h1 class="text-gray-800 text-xl font-bold mb-3">{% trans "Are you sure to delete the address?" %}</h1>
-            <a href="{% url 'shipping_address:shipping_address' %}" class="bg-transparent text-gray-700 hover:bg-gray-700 hover:text-white text-sm py-2 px-4 font-semibold rounded hover:border-none hover:border-transparent border border-gray-500 focus:outline-none focus:shadow-outline">{% trans "Back" %}</a>
-            <input type="submit" class="bg-red-500 hover:bg-red-600 text-white text-sm py-2 px-4 font-semibold rounded focus:outline-none focus:shadow-outline" value="{% trans 'Yes, I agree' %}">
+            <a id="back_address" href="{% url 'shipping_address:shipping_address' %}" class="bg-transparent text-gray-700 hover:bg-gray-700 hover:text-white text-sm py-2 px-4 font-semibold rounded hover:border-none hover:border-transparent border border-gray-500 focus:outline-none focus:shadow-outline" onclick='return loading("back_address", false)'>{% trans "Back" %}</a>
+            <input id="conf_del_address" type="submit" class="bg-red-500 hover:bg-red-600 text-white text-sm py-2 px-4 font-semibold rounded focus:outline-none focus:shadow-outline" value="{% trans 'Yes, I agree' %}" onclick='return loading("conf_del_address", false)'>
         </form>
     </div>
 {% endblock content %}
+
+{% block javascript %}
+    <script type='text/javascript' src="{% static 'js/main.js' %}"></script>
+{% endblock javascript %}
     

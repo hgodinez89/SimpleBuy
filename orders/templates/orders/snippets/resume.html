@@ -47,7 +47,7 @@
     </div>
     {% if cancel %}
         <div class="flex justify-center {{ responsive }}:flex {{ responsive }}:justify-start mt-1">
-            <a href="{% url 'orders:cancel' %}" class="text-xs font-normal text-gray-700 hover:text-gray-800">{% trans "Cancel your order" %}</a>
+            <a id="cancel_order" href="{% url 'orders:cancel' %}" class="text-xs font-normal text-gray-700 hover:text-gray-800" onclick='return loading("cancel_order")'>{% trans "Cancel your order" %}</a>
         </div>
     {% endif %}
 </div>

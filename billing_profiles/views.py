@@ -86,6 +86,8 @@ def delete(request, pk):
     if billing_profile.has_orders():
         messages.error(request, _('The card is associated with an order, therefore it cannot be removed.'))
 
+        return redirect('billing_profiles:billing_profiles')
+       
     BillingProfile.objects.delete_card_stripe(request.user, billing_profile.card_id)
 
     billing_profile.delete_card()

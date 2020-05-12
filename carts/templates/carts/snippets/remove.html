@@ -1,7 +1,13 @@
 {% load i18n %}
 
+{% load static %}
+
 <form action="{% url 'carts:remove' %}" method="POST">
     {% csrf_token %}
     <input type="hidden" name="product_id" value="{{ product.id }}">
-    <button type="submit" class="text-xs hover:underline hover:text-blue-800">{% trans "Delete" %}</button>
+    <button id="remove_item" type="submit" class="text-xs hover:underline hover:text-blue-800" onclick='return loading("remove_item", false)'>{% trans "Delete" %}</button>
 </form>
+
+{% block javascript %}
+    <script type='text/javascript' src="{% static 'js/main.js' %}"></script>
+{% endblock javascript %}

@@ -30,10 +30,12 @@ class ShippingAddressForm(ModelForm):
         super().__init__(*args, **kwargs)
 
         self.fields['line1'].widget.attrs.update({
-            'class': 'text-sm appearance-none rounded w-full py-2 px-3 text-gray-700 bg-gray-200 leading-tight focus:outline-none focus:shadow-outline h-10'
+            'class': 'text-sm appearance-none rounded w-full py-2 px-3 text-gray-700 bg-gray-200 leading-tight focus:outline-none focus:shadow-outline h-10',
+            'placeholder': _('Street address, P.O. box, company name, etc')
         })
         self.fields['line2'].widget.attrs.update({
-            'class': 'text-sm appearance-none rounded w-full py-2 px-3 text-gray-700 bg-gray-200 leading-tight focus:outline-none focus:shadow-outline h-10'
+            'class': 'text-sm appearance-none rounded w-full py-2 px-3 text-gray-700 bg-gray-200 leading-tight focus:outline-none focus:shadow-outline h-10',
+            'placeholder': _('Apartment, suite, unit, building, floor, etc')
         })
         self.fields['city'].widget.attrs.update({
             'class': 'text-sm appearance-none rounded w-full py-2 px-3 text-gray-700 bg-gray-200 leading-tight focus:outline-none focus:shadow-outline h-10'
@@ -48,6 +50,7 @@ class ShippingAddressForm(ModelForm):
             'class': 'text-sm appearance-none rounded w-full py-2 px-3 text-gray-700 bg-gray-200 leading-tight focus:outline-none focus:shadow-outline h-10'
         })
         self.fields['reference'].widget.attrs.update({
-            'class': 'text-sm appearance-none rounded w-full py-2 px-3 text-gray-700 bg-gray-200 leading-tight focus:outline-none focus:shadow-outline h-10'
+            'class': 'text-sm appearance-none rounded w-full py-2 px-3 text-gray-700 bg-gray-200 leading-tight focus:outline-none focus:shadow-outline h-10',
+            'placeholder': _('Details such as building description, a nearby landmark, etc')
         })
     

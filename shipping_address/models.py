@@ -27,7 +27,21 @@ class ShippingAddress(models.Model):
 
     @property
     def address(self):
-        return '{} - {} - {}'.format(self.city, self.state, self.country)
+        general_address = '{} - {} - {}'.format(self.city, self.state, self.country)
+
+        return general_address[0:37] + '...' if len(general_address) > 40 else general_address
+
+    @property
+    def line1_address(self):
+        return self.line1[0:40] + '...' if len(self.line1) > 40 else self.line1
+
+    @property
+    def line2_address(self):
+        return self.line2[0:40] + '...' if len(self.line2) > 40 else self.line2
+    
+    @property
+    def reference_address(self):
+        return self.reference[0:40] + '...' if len(self.reference) > 40 else self.reference
 
 
 

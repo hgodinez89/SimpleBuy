@@ -1,5 +1,7 @@
 {% load i18n %}
 
+{% load static %}
+
 <form action="{% url 'carts:add' %}" method="POST">
     {% csrf_token %}
     <input type="hidden" name="product_id" value="{{ product.id }}">
@@ -19,7 +21,7 @@
         </div>
     </div>
 
-    <button type="submit"
+    <button id="add_item_cart" onclick='return loading("add_item_cart")' type="submit"
         class="add-cart mt-4 px-4 md:px-1 py-2 bg-blue-600 hover:bg-blue-500 text-white text-xs md:text-sm font-semibold rounded focus:outline-none focus:shadow-outline">{% trans "Add to cart" %}</button>
 </form>
 
@@ -72,3 +74,7 @@
         "{{ request.session.products_quantity }}")) + value
     })
 </script>
+
+{% block javascript %}
+    <script type='text/javascript' src="{% static 'js/main.js' %}"></script>
+{% endblock javascript %}

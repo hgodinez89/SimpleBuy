@@ -96,9 +96,9 @@ def update_language(request):
         request.user.language = request.POST.get('language')
 
         request.user.save()
-
+    
     translation.activate(request.POST.get('language'))
-
+    
     set_language(request)
 
     return redirect(request.POST.get('redirect'))

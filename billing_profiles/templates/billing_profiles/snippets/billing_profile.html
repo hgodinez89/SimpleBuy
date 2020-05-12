@@ -42,7 +42,7 @@
                 <span class="inline-block text-xs md:text-sm font-semibold text-gray-700">
                     {% if billing_profile.default %}
                         {% if choose %}
-                            <a href="{% url 'billing_profiles:delete' billing_profile.pk %}" class="flex flex-row text-gray-600 opacity-75 hover:opacity-100 hover:underline hover:text-blue-800">
+                            <a id="choose_card" href="{% url 'billing_profiles:delete' billing_profile.pk %}" class="flex flex-row text-gray-600 opacity-75 hover:opacity-100 hover:underline hover:text-blue-800" onclick='return loading("choose_card", false)'>
                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" class="mt-1 mr-2" style="fill: #a0aec0;"><path d="M20.285 2l-11.285 11.567-5.286-5.011-3.714 3.716 9 8.728 15-15.285z"/></svg>
                                 {% trans "Choose" %}
                             </a>
@@ -53,10 +53,10 @@
                         {% if choose %}
                             {% url 'orders:payment' as next_url %}
                         {% else %}
-                            {% url 'orders:payment' as next_url %}
+                            {% url 'billing_profiles:billing_profiles' as next_url %}
                         {% endif %}
-                        <a href="{% url 'billing_profiles:default' billing_profile.pk %}?next={{ next_url }}"
-                            class="inline-block text-xs md:text-sm font-normal text-blue-700 underline hover:text-blue-800">
+                        <a id="default_card" href="{% url 'billing_profiles:default' billing_profile.pk %}?next={{ next_url }}"
+                            class="inline-block text-xs md:text-sm font-normal text-blue-700 underline hover:text-blue-800" onclick='return loading("default_card", false)'>
                             {% if choose %}
                                 {% trans "Choose" %}
                             {% else %}
@@ -67,8 +67,8 @@
                 </span>
                 <div class="inline-block -mt-2">
                     {% if remove %}
-                        <a href="{% url 'billing_profiles:delete' billing_profile.pk %}"
-                            class="inline-block bg-transparent hover:bg-red-600 hover:text-white text-gray-700 text-xs md:text-sm font-normal mr-0 md:mr-4 py-1 px-2 border border-gray-500 hover:border-transparent rounded">{% trans "Delete" %}</a>
+                        <a id="delete_card" href="{% url 'billing_profiles:delete' billing_profile.pk %}"
+                            class="inline-block bg-transparent hover:bg-red-600 hover:text-white text-gray-700 text-xs md:text-sm font-normal mr-0 md:mr-4 py-1 px-2 border border-gray-500 hover:border-transparent rounded" onclick='return loading("delete_card", false)'>{% trans "Delete" %}</a>
                     {% endif %}
                 </div>
             </div>
