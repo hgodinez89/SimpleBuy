@@ -36,7 +36,7 @@ class Secrets:
     MAILJET_PRIV_KEY = 'your own private MailJet's apiKey to send notifications from GCP for customers orders, etc'
 ```
 </br></br>
-Thanks for your visiting! 👍
+Thanks for your visit! 👍
 
 ## Version History
 
