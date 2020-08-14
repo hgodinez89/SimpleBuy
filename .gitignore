@@ -72,7 +72,7 @@ venv.bak/
 /site 
 
 #deploy GCP
-public
+static/admin
 
 # mypy 
 .mypy_cache/ 
