@@ -1,5 +1,4 @@
 // Create a Stripe client.
-// Se agrega la lectura de la etiqueta Meta con el fin de leer la informacion del server al cliente
 const stripe_public_key = document.querySelector("meta[name='stripe_public_key']").getAttribute('content')
 var stripe = Stripe(stripe_public_key)
 

@@ -71,6 +71,9 @@ venv.bak/
 # mkdocs documentation 
 /site 
 
+#deploy GCP
+public
+
 # mypy 
 .mypy_cache/ 
 

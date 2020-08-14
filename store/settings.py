@@ -10,7 +10,6 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.0/ref/settings/
 """
 
-from decouple import config
 import os
 
 from django.utils.translation import gettext_lazy as _
@@ -195,7 +194,7 @@ STATIC_URL = '/static/'
 
 # If you want to test locally you need to comment this below line
 # this line is neccesary if you want to deploy on GCP
-# STATIC_ROOT = 'static'
+STATIC_ROOT = 'public'
 
 # Folder static
 STATICFILES_DIRS = (
