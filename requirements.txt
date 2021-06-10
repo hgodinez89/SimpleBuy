@@ -3,7 +3,7 @@ astroid==2.3.3
 autopep8==1.5
 certifi==2019.11.28
 chardet==3.0.4
-Django==3.0.7
+Django==3.1.12
 django-tailwind==0.7.1
 django-user-language-middleware==0.0.3
 DjangoSEO==1.0
