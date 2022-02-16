@@ -103,7 +103,7 @@ In case that you need more test cards you can go to <a href="https://stripe.com/
 ## Have questions?
 
 If you have questions or just need any help, feel free to write to me 
-<a href="mailto:hgodinez89@hotmail.com" target="_blank">hgodinez89@hotmail.com</a>
+<a href="mailto:hanzelgodinez@gmail.com" target="_blank">hgodinez89@hotmail.com</a>
 
 ## Thanks
 
